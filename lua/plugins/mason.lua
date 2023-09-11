@@ -6,11 +6,14 @@ return {
 	opts = {
 		ensure_installed = {
 			"astro-language-server",
+			"eslint-lsp",
 			"prettier",
 			"pyright",
 			"stylua",
 			"svelte-language-server",
 			"typescript-language-server",
+			"vue-language-server",
+			"json-lsp",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

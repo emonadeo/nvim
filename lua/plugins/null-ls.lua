@@ -26,7 +26,7 @@ return {
 					end,
 				}),
 				null_ls.builtins.formatting.prettier.with({
-					extra_filetypes = { "sql", "astro" },
+					extra_filetypes = { "sql", "astro", "svg" },
 				}),
 				-- null_ls.builtins.formatting.deno_fmt,
 			},

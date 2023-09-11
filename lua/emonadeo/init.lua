@@ -1,6 +1,9 @@
 require("emonadeo.neovide")
 require("emonadeo.keymap")
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 vim.opt.guifont = { "FiraCode Nerd Font Mono", ":h16" }
 vim.opt.bufhidden = "wipe"
 vim.opt.tabstop = 4
@@ -15,5 +18,9 @@ vim.opt.listchars:append("space:⋅")
 -- Do not break long lines
 vim.opt.wrap = false
 
--- Disable laststatus
--- vim.opt.laststatus = 0
+-- Sync with system clipboard
+vim.opt.clipboard = "unnamedplus"
+
+vim.opt.showmode = false -- Dont show mode since we have a statusline
+vim.opt.laststatus = 0
+vim.opt.cmdheight = 0

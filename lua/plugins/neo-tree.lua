@@ -19,4 +19,18 @@ return {
 			},
 		},
 	},
+	keys = {
+		{ "<leader>E", "<cmd>Neotree toggle<CR>", desc = "Toggle File Explorer" },
+		{
+			"<leader>e",
+			function()
+				if vim.bo.filetype == "neo-tree" then
+					vim.cmd.wincmd("p")
+				else
+					vim.cmd.Neotree("focus")
+				end
+			end,
+			desc = "Focus File Explorer",
+		},
+	},
 }
