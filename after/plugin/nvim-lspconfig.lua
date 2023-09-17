@@ -7,7 +7,7 @@ lspconfig.volar.setup({})
 lspconfig.eslint.setup({})
 
 -- Global Keymap
--- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
@@ -39,6 +39,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.format({ async = true })
 		end, { buffer = ev.buf, desc = "Format" })
 	end,
+})
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	virtual_text = {
+		source = "always",
+		prefix = "",
+	},
+	float = {
+		source = "always",
+		border = "rounded",
+	},
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", silent = true })

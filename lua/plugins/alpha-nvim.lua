@@ -3,26 +3,19 @@ return {
 	event = "VimEnter",
 	opts = function()
 		local dashboard = require("alpha.themes.dashboard")
-		local logo = [[
-          __________________________
-      A   |                        |
-  ___/ \v~|_                       |
-  >        _`~_                    |_
-<         (    \                   | `\
- `>           \ \                  |   \
-  |     (     ) |                  |    \
-   \     __,~/ _/A__               |\    |
-    ~-_    __~/    ;)              | )   |
-       `T’”  _~-***                |/    |
-        |  _/                 _ _  |    /
-        | /      ___ ___  ___(_X_) |   /
-       / '|     (_  V __)/ __V V \ |__/
-      /   |     / A | _,\ /  | | | |
-     /    |__   | V |^_/  \__| | | |
- ___/    -*  \  \___A___/\___A_A_/ |-~_____
-(  (_________/___________________~/       _)
- `---_______________________________~----'
-CC by Johanna W.]]
+		local logo = [[        .:=+*####***++==---::
+                   ...:#%%%%%=
+                       -%%%%%%
+                        #%%%%%=
+              .--::..   :%%#*+=
+              :%=:--==%%%%%%.
+               %-     %%%%%%.
+               #-     %%%%%%.
+               **=---:%%#*=-.
+                ...::--=+%%%%%#
+                        :%%%%%*
+                        =%%%%%=
+                        +##*+=.]]
 
 		dashboard.section.header.val = vim.split(logo, "\n")
 		dashboard.section.buttons.val = {
@@ -43,27 +36,6 @@ CC by Johanna W.]]
 		return dashboard
 	end,
 	config = function(_, dashboard)
-		-- close Lazy and re-open when the dashboard is ready
-		if vim.o.filetype == "lazy" then
-			vim.cmd.close()
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "AlphaReady",
-				callback = function()
-					require("lazy").show()
-				end,
-			})
-		end
-
 		require("alpha").setup(dashboard.opts)
-
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "LazyVimStarted",
-			callback = function()
-				local stats = require("lazy").stats()
-				local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-				dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-				pcall(vim.cmd.AlphaRedraw)
-			end,
-		})
 	end,
 }
