@@ -5,11 +5,12 @@ lspconfig.tsserver.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.volar.setup({})
 lspconfig.eslint.setup({})
+lspconfig.lua_ls.setup({})
 
 -- Global Keymap
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics" })
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Local Keymap
@@ -34,14 +35,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
 		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Actions" })
-		-- vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, { buffer = ev.buf, desc = "References" })
+		vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, { buffer = ev.buf, desc = "References" })
 		vim.keymap.set("n", "<leader>cf", function()
 			vim.lsp.buf.format({ async = true })
 		end, { buffer = ev.buf, desc = "Format" })
 	end,
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "󱠂 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

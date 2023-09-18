@@ -1,3 +1,10 @@
+-- TODO: sd
+-- FIX: sd
+-- HACK: sd
+-- PERF: sd
+-- NOTE: sd
+-- WARNING: sd
+
 return {
 	"folke/todo-comments.nvim",
 	cmd = { "TodoTrouble", "TodoTelescope" },
@@ -18,9 +25,16 @@ return {
 			end,
 			desc = "Previous todo comment",
 		},
-		{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-		{ "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-		{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-		{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+	},
+	opts = {
+		keywords = {
+			FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+			TODO = { icon = " ", color = "info" },
+			HACK = { icon = " ", color = "warning" },
+			WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+			PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+			NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+			TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+		},
 	},
 }
