@@ -3,7 +3,6 @@ return {
 	tag = "0.1.2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"BurntSushi/ripgrep",
 	},
 	opts = {
 		extensions = {
@@ -17,7 +16,10 @@ return {
 		},
 	},
 	keys = {
+		{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Find Buffers" },
 		{ "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find Files" },
-		{ "<leader>fg", "<Cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+		{ "<leader>fF", "<Cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+		{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Find Grep" },
+		{ "<leader>fc", "<Cmd>Telescope colorscheme<CR>", desc = "Find Colorschemes" },
 	},
 }

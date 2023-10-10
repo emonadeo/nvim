@@ -14,6 +14,7 @@ vim.opt.list = true
 -- Visible Whitespace
 vim.opt.listchars:append("tab:>-")
 vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("trail:⋅")
 
 -- Do not break long lines
 vim.opt.wrap = false

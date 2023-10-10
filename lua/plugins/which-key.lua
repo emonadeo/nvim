@@ -6,7 +6,7 @@ return {
 		defaults = {
 			mode = { "n", "v" },
 			["g"] = { name = "Goto" },
-			["gz"] = { name = "Surround" },
+			["gs"] = { name = "Surround" },
 			["]"] = { name = "Next" },
 			["["] = { name = "Previous" },
 			["<leader>b"] = { name = "Buffer" },

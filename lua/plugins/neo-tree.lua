@@ -13,16 +13,31 @@ return {
 			statusline = false,
 		},
 		filesystem = {
-			follow_current_file = { enabled = true },
+			hijack_netrw_behavior = "open_current",
+			window = {
+				position = "current",
+			},
+			follow_current_file = {
+				enabled = false,
+				leave_dirs_open = false,
+			},
 			filtered_items = {
 				visible = true,
 				hide_dotfiles = false,
 			},
 		},
 		default_component_configs = {
+			indent = {
+				indent_size = 2,
+				padding = 0,
+				with_markers = true,
+				indent_marker = "│",
+				last_indent_marker = "└",
+				highlight = "NeoTreeIndentMarker",
+			},
 			icon = {
-				folder_closed = "",
-				folder_open = "",
+				folder_closed = "",
+				folder_open = "",
 				folder_empty = "",
 				highlight = "NeoTreeFileIcon",
 			},
@@ -84,19 +99,11 @@ return {
 				},
 			},
 		},
+		window = {
+			-- auto_expand_width = true,
+		},
 	},
 	keys = {
-		{ "<leader>E", "<cmd>Neotree toggle<CR>", desc = "Toggle File Explorer" },
-		{
-			"<leader>e",
-			function()
-				if vim.bo.filetype == "neo-tree" then
-					vim.cmd.wincmd("p")
-				else
-					vim.cmd.Neotree("focus")
-				end
-			end,
-			desc = "Focus File Explorer",
-		},
+		{ "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle File Explorer" },
 	},
 }
