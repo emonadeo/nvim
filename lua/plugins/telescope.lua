@@ -5,6 +5,11 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	opts = {
+		defaults = {
+			prompt_prefix = " ",
+			selection_caret = " ",
+			entry_prefix = " ",
+		},
 		extensions = {
 			fzf = {
 				fuzzy = true, -- false will only do exact matching

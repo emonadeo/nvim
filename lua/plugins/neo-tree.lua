@@ -18,7 +18,7 @@ return {
 				position = "current",
 			},
 			follow_current_file = {
-				enabled = false,
+				enabled = true,
 				leave_dirs_open = false,
 			},
 			filtered_items = {
@@ -100,7 +100,7 @@ return {
 			},
 		},
 		window = {
-			-- auto_expand_width = true,
+			auto_expand_width = true,
 		},
 	},
 	keys = {
