@@ -14,6 +14,8 @@ return {
 			"typescript-language-server",
 			"vue-language-server",
 			"json-lsp",
+			"rust-analyzer",
+			"black",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

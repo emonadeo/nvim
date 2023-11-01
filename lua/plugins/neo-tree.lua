@@ -58,7 +58,7 @@ return {
 					deleted = "", -- only in git_status source
 					renamed = "", -- only in git_status source
 					-- Status type
-					untracked = "",
+					untracked = "",
 					ignored = "",
 					unstaged = "",
 					-- unstaged = "",

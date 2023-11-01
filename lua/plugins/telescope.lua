@@ -11,6 +11,7 @@ return {
 			entry_prefix = " ",
 		},
 		extensions = {
+			project = {},
 			fzf = {
 				fuzzy = true, -- false will only do exact matching
 				override_generic_sorter = true, -- override the generic sorter
@@ -26,5 +27,6 @@ return {
 		{ "<leader>fF", "<Cmd>Telescope git_files<CR>", desc = "Find Git Files" },
 		{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Find Grep" },
 		{ "<leader>fc", "<Cmd>Telescope colorscheme<CR>", desc = "Find Colorschemes" },
+		{ "<leader>fp", "<Cmd>Telescope project<CR>", desc = "Find Projects" },
 	},
 }

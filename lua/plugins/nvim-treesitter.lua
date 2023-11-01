@@ -54,7 +54,7 @@ return {
 			"python",
 			"query",
 			"regex",
-			"rst",
+			"rust",
 			"svelte",
 			"toml",
 			"tsx",

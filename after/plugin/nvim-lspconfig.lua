@@ -6,12 +6,16 @@ lspconfig.jsonls.setup({})
 lspconfig.volar.setup({})
 lspconfig.eslint.setup({})
 lspconfig.lua_ls.setup({})
+lspconfig.rust_analyzer.setup({})
+lspconfig.pyright.setup({})
 
 -- Global Keymap
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Local Keymap
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -37,8 +41,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Actions" })
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, { buffer = ev.buf, desc = "References" })
 		vim.keymap.set("n", "<leader>cf", function()
-			vim.lsp.buf.format({ async = true })
+			vim.lsp.buf.format({
+				async = true,
+				filter = function(client)
+					return client.name == "null-ls" or client.name == "rust_analyzer"
+				end,
+			})
 		end, { buffer = ev.buf, desc = "Format" })
+
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = ev.buf })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = ev.buf,
+			callback = function()
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+					filter = function(client)
+						return client.name == "null-ls" or client.name == "rust_analyzer"
+					end,
+				})
+			end,
+		})
 	end,
 })
 
@@ -54,7 +77,7 @@ vim.diagnostic.config({
 	severity_sort = true,
 	virtual_text = {
 		source = "always",
-		prefix = "",
+		prefix = " ",
 	},
 	float = {
 		source = "always",

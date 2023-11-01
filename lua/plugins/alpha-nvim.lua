@@ -19,7 +19,7 @@ return {
 
 		dashboard.section.header.val = vim.split(logo, "\n")
 		dashboard.section.buttons.val = {
-			dashboard.button("p", " " .. " Projects", ":Telescope projects <CR>"),
+			dashboard.button("p", " " .. " Projects", ":Telescope project <CR>"),
 			dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
 			dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
