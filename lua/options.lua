@@ -1,6 +1,4 @@
-require("emonadeo.neovide")
-require("emonadeo.keymap")
-
+-- options
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -25,3 +23,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.showmode = false -- Dont show mode since we have a statusline
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
+
+local signs = { Error = " ", Warn = " ", Hint = "󱠂 ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
