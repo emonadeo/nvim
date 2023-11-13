@@ -166,7 +166,6 @@ return {
 				["<leader>b"] = { name = "Buffer" },
 				["<leader>c"] = { name = "Code" },
 				["<leader>f"] = { name = "Find" },
-				["<leader>p"] = { name = "Project" },
 				["<leader>u"] = { name = "UI" },
 			},
 		},
