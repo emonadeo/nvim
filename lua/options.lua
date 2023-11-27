@@ -2,7 +2,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.guifont = "Geist Mono:h16"
+vim.opt.guifont = "GeistMono NFM:h16"
 vim.opt.bufhidden = "wipe"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
