@@ -23,11 +23,9 @@ return {
 
 	-- snippets
 	{ "L3MON4D3/LuaSnip" },
-
-
 	{ "rafamadriz/friendly-snippets" },
 
-	-- camelCase and snake_case motions
+	-- camel case and snake case motions
 	{ "chaoren/vim-wordmotion" },
 
 	-- auto pairs

@@ -211,5 +211,12 @@ return {
 			{ "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
 			{ "<leader>bD", function() require("mini.bufremove").delete(0, true) end,  desc = "Delete Buffer (Force)" },
 		},
-	}
+	},
+
+	-- f/F indicators
+	{
+		"jinh0/eyeliner.nvim",
+		event = { "BufReadPre" },
+		opts = { highlight_on_key = true, dim = true },
+	},
 }

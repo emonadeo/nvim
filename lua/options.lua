@@ -1,13 +1,10 @@
--- options
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.guifont = "GeistMono NFM:h16"
-vim.opt.bufhidden = "wipe"
+vim.opt.bufhidden = "delete"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
 vim.opt.list = true
--- vim.opt.linespace = 16
 
 -- Visible Whitespace
 vim.opt.listchars:append("tab:──")
@@ -23,6 +20,12 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.showmode = false -- Dont show mode since we have a statusline
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldminlines = 1
+vim.opt.foldenable = false
 
 local signs = { Error = " ", Warn = " ", Hint = "󱠂 ", Info = " " }
 for type, icon in pairs(signs) do
