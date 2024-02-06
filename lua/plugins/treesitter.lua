@@ -8,7 +8,6 @@ return {
 			{
 				"nvim-treesitter/nvim-treesitter-textobjects",
 				"windwp/nvim-ts-autotag",
-				"JoosepAlviste/nvim-ts-context-commentstring",
 				init = function()
 					-- disable rtp plugin, as we only need its queries for mini.ai
 					-- In case other textobject modules are enabled, we will load them
@@ -29,9 +28,6 @@ return {
 				enable_rename = true,
 				enable_close = true,
 				enable_close_on_slash = true,
-			},
-			context_commentstring = {
-				enable = true,
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
