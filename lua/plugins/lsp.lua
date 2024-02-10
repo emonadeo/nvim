@@ -16,6 +16,15 @@ return {
 		},
 		config = function()
 			local lsp_zero = require('lsp-zero')
+			lsp_zero.set_server_config({
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			});
 			lsp_zero.extend_lspconfig()
 			lsp_zero.on_attach(function(client, bufnr)
 				-- see :help lsp-zero-keybindings

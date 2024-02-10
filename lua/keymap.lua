@@ -13,6 +13,3 @@ vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Go to left window", remap =
 vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Go to lower window", remap = true })
 vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Go to right window", remap = true })
-
--- Diagnostics
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostics", remap = true })
