@@ -11,7 +11,7 @@ return {
 				["<CR>"] = "actions.select",
 				["<C-p>"] = "actions.preview",
 				["<C-l>"] = "actions.refresh",
-				["<Del>"] = "actions.parent",
+				["<BS>"] = "actions.parent",
 				["`"] = "actions.open_cwd",
 				["~"] = "actions.cd",
 				["gx"] = "actions.open_external",
