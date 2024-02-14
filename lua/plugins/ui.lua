@@ -91,6 +91,7 @@ return {
 	},
 
 	-- notifications
+	-- TODO: cleanup
 	{
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
@@ -114,12 +115,7 @@ return {
 		},
 	},
 
-	-- icons
-	{
-		"nvim-tree/nvim-web-devicons",
-		lazy = true,
-	},
-
 	-- ui components
+	-- TODO: cleanup
 	{ "MunifTanjim/nui.nvim", lazy = true },
 }
