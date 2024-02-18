@@ -21,10 +21,9 @@ vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 
 -- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldminlines = 1
-vim.opt.foldenable = false
+vim.opt.foldenable = true
+vim.opt.foldlevel = 100
+vim.opt.foldlevelstart = 100
 
 local signs = { Error = " ", Warn = " ", Hint = "󱠂 ", Info = " " }
 for type, icon in pairs(signs) do
