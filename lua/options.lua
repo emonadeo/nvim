@@ -17,7 +17,7 @@ vim.opt.wrap = false
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.showmode = false -- Dont show mode since we have a statusline
-vim.opt.laststatus = 0
+vim.opt.laststatus = 2
 vim.opt.cmdheight = 0
 
 -- Folding

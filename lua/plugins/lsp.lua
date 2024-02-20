@@ -35,6 +35,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"astro",
+					"denols",
 					"eslint",
 					"gopls", -- go
 					"lua_ls",
@@ -52,6 +53,12 @@ return {
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		config = true,
+		opts = function()
+			return {
+				single_file_support = false,
+				-- only enable tsserver if the project has a `tsconfig.json `or` jsconfig.json`
+				root_dir = require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json"),
+			}
+		end,
 	},
 }
