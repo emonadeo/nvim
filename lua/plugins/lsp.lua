@@ -36,16 +36,44 @@ return {
 				ensure_installed = {
 					"astro",
 					"denols",
+					"emmet_language_server",
 					"eslint",
 					"gopls", -- go
 					"lua_ls",
-					"prettier",
 					"rust_analyzer",
 					"svelte",
 					"volar", -- vue
 				},
 				handlers = {
 					lsp_zero.default_setup,
+					denols = function()
+						require("lspconfig").denols.setup({
+							single_file_support = false,
+							root_dir = function(startpath)
+								local util = require("lspconfig.util")
+								local deno_root = util.root_pattern("deno.json")(startpath)
+								-- is there a deno.json?
+								if not deno_root then
+									-- no deno.json found -> disable denols
+									return nil
+								end
+								-- found a deno.json
+								local ts_root =
+									util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(startpath)
+								-- is there a tsconfig.json or package.json?
+								if not ts_root then
+									-- no tsconfig.json or package.json found -> enable denols
+									return deno_root
+								end
+								if string.len(ts_root) > string.len(deno_root) then
+									-- tsconfig.json or package.json is deeper than deno.json -> disable denols
+									return nil
+								end
+								-- tsconfig.json or package.json is either the same or shallower than deno.json -> enable denols
+								return deno_root
+							end,
+						})
+					end,
 				},
 			})
 		end,
@@ -57,7 +85,29 @@ return {
 			return {
 				single_file_support = false,
 				-- only enable tsserver if the project has a `tsconfig.json `or` jsconfig.json`
-				root_dir = require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json"),
+				root_dir = function(startpath)
+					local util = require("lspconfig.util")
+					local ts_root = util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(startpath)
+					-- is there a tsconfig.json or package.json?
+					if not ts_root then
+						-- no tsconfig.json or package.json found -> disable tsserver
+						return nil
+					end
+					-- found a tsconfig.json or package.json
+					local deno_root = util.root_pattern("deno.json")(startpath)
+					-- is there a deno.json?
+					if not deno_root then
+						-- no deno.json found -> enable tsserver
+						return ts_root
+					end
+					-- found a deno.json
+					if string.len(ts_root) <= string.len(deno_root) then
+						-- deno.json is either the same or deeper than tsconfig.json or package.json -> disable tsserver
+						return nil
+					end
+					-- tsconfig.json or package.json is deeper than deno.json -> enable tsserver
+					return ts_root
+				end,
 			}
 		end,
 	},
