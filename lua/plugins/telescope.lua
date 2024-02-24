@@ -13,7 +13,7 @@ return {
 			prompt_prefix = " ",
 			selection_caret = " ",
 			entry_prefix = " ",
-			winblend = 100,
+			winblend = vim.opt.winblend:get(),
 		},
 		extensions = {
 			fzf = {

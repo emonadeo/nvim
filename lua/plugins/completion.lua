@@ -1,10 +1,11 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			{ "L3MON4D3/LuaSnip" },
 			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-path" },
@@ -35,7 +36,7 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
 					["<Tab>"] = cmp_action.luasnip_supertab(),
 					["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 				}),
@@ -51,6 +52,27 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
+			})
+
+			-- use cmp for search completion
+			cmp.setup.cmdline("/", {
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+
+			-- use cmp for command line completion
+			cmp.setup.cmdline(":", {
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
 			})
 		end,
 	},

@@ -2,6 +2,7 @@ return {
 	-- file explorer
 	{
 		"stevearc/oil.nvim",
+		event = "VimEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
