@@ -1,3 +1,5 @@
+vim.filetype.add({ extension = { wgsl = "wgsl" } })
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	version = false, -- last release is way too old and doesn't work on Windows
@@ -25,6 +27,7 @@ return {
 			"astro",
 			"bash",
 			"c",
+			"hcl",
 			"html",
 			"javascript",
 			"jsdoc",
@@ -49,7 +52,9 @@ return {
 			"vim",
 			"vimdoc",
 			"yaml",
+			"wgsl",
 		},
+		-- TODO: clean up
 		incremental_selection = {
 			enable = true,
 			keymaps = {

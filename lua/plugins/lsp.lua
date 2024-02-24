@@ -35,6 +35,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"astro",
+					"cssls",
 					"denols",
 					"emmet_language_server",
 					"eslint",
@@ -43,6 +44,7 @@ return {
 					"rust_analyzer",
 					"svelte",
 					"volar", -- vue
+					"wgsl_analyzer",
 				},
 				handlers = {
 					lsp_zero.default_setup,
