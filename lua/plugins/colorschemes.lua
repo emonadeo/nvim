@@ -27,6 +27,9 @@ return {
 				return {
 					Folded = { link = "Normal" },
 					UfoFoldedEllipsis = { link = "Normal" },
+					-- disable background of statusline; we use heirline.nvim (see statusline.lua)
+					StatusLine = { bg = colors.none },
+					StatusLineNC = { bg = colors.none },
 				}
 			end,
 		},
