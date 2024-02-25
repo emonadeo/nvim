@@ -7,6 +7,7 @@ return {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-path" },
 			{ "onsails/lspkind.nvim" },
@@ -44,6 +45,7 @@ return {
 				sources = {
 					{ name = "path" },
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
 					{ name = "luasnip" },
 					{ name = "buffer" },

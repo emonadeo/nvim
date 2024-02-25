@@ -21,10 +21,6 @@ return {
 		},
 	},
 
-	-- snippets
-	{ "L3MON4D3/LuaSnip" },
-	{ "rafamadriz/friendly-snippets" },
-
 	-- camel case and snake case motions
 	{ "chaoren/vim-wordmotion" },
 
@@ -32,7 +28,7 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
-		opts = {},
+		config = true,
 	},
 
 	-- better text objects
@@ -94,5 +90,8 @@ return {
 	-- comments
 	{
 		"echasnovski/mini.comment",
+		version = false,
+		event = "VeryLazy",
+		config = true,
 	},
 }
