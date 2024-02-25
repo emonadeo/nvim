@@ -36,7 +36,7 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
+					["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
 					["<Tab>"] = cmp_action.luasnip_supertab(),
 					["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 				}),
@@ -51,13 +51,6 @@ return {
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
-				},
-			})
-
-			-- use cmp for search completion
-			cmp.setup.cmdline("/", {
-				sources = {
-					{ name = "buffer" },
 				},
 			})
 

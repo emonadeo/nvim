@@ -13,6 +13,7 @@ return {
 					json = { { "prettierd", "prettier" } },
 					lua = { "stylua" },
 					markdown = { { "prettierd", "prettier" } },
+					svg = { { "prettierd", "prettier" } },
 					toml = { "rustfmt" },
 					typescript = { { "prettierd", "prettier" } },
 					typescriptreact = { { "prettierd", "prettier" } },
