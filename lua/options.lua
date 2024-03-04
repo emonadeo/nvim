@@ -1,10 +1,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- transparent floating windows
-vim.opt.winblend = 50
-vim.opt.pumblend = 50
-
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
 vim.opt.list = true

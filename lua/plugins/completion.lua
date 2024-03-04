@@ -23,10 +23,15 @@ return {
 
 			require("luasnip.loaders.from_vscode").lazy_load()
 
+			-- TODO: this isn't great to use
+			local keys = {
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
+				["<Tab>"] = cmp_action.luasnip_supertab(),
+				["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+			}
+
 			cmp.setup({
-				completion = {
-					completeopt = "menu,menuone,noinsert",
-				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = require("lspkind").cmp_format({
@@ -35,13 +40,7 @@ return {
 						ellipsis_char = "...",
 					}),
 				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
-					["<Tab>"] = cmp_action.luasnip_supertab(),
-					["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
-				}),
-				preselect = "item",
+				mapping = cmp.mapping.preset.insert(keys),
 				sources = {
 					{ name = "path" },
 					{ name = "nvim_lsp" },
@@ -58,6 +57,7 @@ return {
 
 			-- use cmp for command line completion
 			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(keys),
 				sources = cmp.config.sources({
 					{ name = "path" },
 				}, {

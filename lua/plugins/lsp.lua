@@ -39,6 +39,7 @@ return {
 					"denols",
 					"emmet_language_server",
 					"eslint",
+					"jsonls",
 					"gopls", -- go
 					"lua_ls",
 					"rust_analyzer",
