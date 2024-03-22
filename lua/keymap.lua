@@ -5,8 +5,8 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 
 -- Splits
-vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
-vim.keymap.set("n", "<leader>\\", "<cmd>split<cr>", { desc = "Horizontal Split" })
+vim.keymap.set("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
+vim.keymap.set("n", "<leader>|", "<cmd>split<cr>", { desc = "Horizontal Split" })
 
 -- Move to window using the <leader> hjkl keys
 vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Go to left window", remap = true })

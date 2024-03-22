@@ -21,7 +21,6 @@ return {
 
 			dashboard.section.header.val = vim.split(logo, "\n")
 			dashboard.section.buttons.val = {
-				dashboard.button("p", " " .. " Projects", ":Telescope project <CR>"),
 				dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
 				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
 				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
@@ -124,4 +123,18 @@ return {
 	-- ui components
 	-- TODO: cleanup
 	{ "MunifTanjim/nui.nvim", lazy = true },
+
+	-- markdown preview
+	{
+		"toppair/peek.nvim",
+		event = { "VeryLazy" },
+		build = "deno task --quiet build:fast",
+		config = function(_, opts)
+			require("peek").setup(opts)
+			-- TODO: keybindings
+			-- refer to `configuration to change defaults`
+			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+		end,
+	},
 }

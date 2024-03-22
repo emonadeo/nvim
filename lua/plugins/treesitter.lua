@@ -30,6 +30,7 @@ return {
 			"css",
 			"hcl",
 			"html",
+			"java",
 			"javascript",
 			"jsdoc",
 			"json",
