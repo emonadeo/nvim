@@ -7,11 +7,37 @@ return {
 			return {
 				formatters = {
 					prettier = {
-						cwd = require("conform.util").root_file({ "package.json", ".prettierrc.json" }),
+						cwd = require("conform.util").root_file({
+							"package.json",
+							".prettierrc",
+							".prettierrc.json",
+							".prettierrc.yml",
+							".prettierrc.yaml",
+							".prettierrc.js",
+							".prettierrc.mjs",
+							".prettierrc.cjs",
+							".prettierrc.toml",
+							"prettier.config.js",
+							"prettier.config.mjs",
+							"prettier.config.cjs",
+						}),
 						require_cwd = true,
 					},
 					prettierd = {
-						cwd = require("conform.util").root_file({ "package.json", ".prettierrc.json" }),
+						cwd = require("conform.util").root_file({
+							"package.json",
+							".prettierrc",
+							".prettierrc.json",
+							".prettierrc.yml",
+							".prettierrc.yaml",
+							".prettierrc.js",
+							".prettierrc.mjs",
+							".prettierrc.cjs",
+							".prettierrc.toml",
+							"prettier.config.js",
+							"prettier.config.mjs",
+							"prettier.config.cjs",
+						}),
 						require_cwd = true,
 					},
 					deno_fmt = {
@@ -26,6 +52,7 @@ return {
 					json = { { "prettierd", "prettier", "deno_fmt" } },
 					lua = { "stylua" },
 					markdown = { { "prettierd", "prettier" } },
+					python = { "ruff_format" },
 					svg = { { "prettierd", "prettier" } },
 					toml = { "rustfmt" },
 					typescript = { { "prettierd", "prettier" } },

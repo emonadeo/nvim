@@ -42,6 +42,8 @@ return {
 					"jsonls",
 					"gopls", -- go
 					"lua_ls",
+					"pyright", -- python
+					"ruff_lsp", -- python checker/linter
 					"rust_analyzer",
 					"svelte",
 					"volar", -- vue
@@ -74,6 +76,29 @@ return {
 								end
 								-- tsconfig.json or package.json is either the same or shallower than deno.json -> enable denols
 								return deno_root
+							end,
+						})
+					end,
+					pyright = function()
+						require("lspconfig").pyright.setup({
+							settings = {
+								pyright = {
+									-- using ruff's import organizer
+									disableOrganizeImports = true,
+								},
+								python = {
+									analysis = {
+										-- ignore all files for analysis to exclusively use ruff for linting
+										ignore = { "*" },
+									},
+								},
+							},
+						})
+					end,
+					ruff_lsp = function()
+						require("lspconfig").ruff_lsp.setup({
+							on_init = function(client)
+								client.server_capabilities.hoverProvider = false
 							end,
 						})
 					end,
