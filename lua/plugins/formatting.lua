@@ -50,6 +50,8 @@ return {
 					javascript = { { "prettierd", "prettier" } },
 					javascriptreact = { { "prettierd", "prettier" } },
 					json = { { "prettierd", "prettier", "deno_fmt" } },
+					json5 = { { "prettierd", "prettier", "deno_fmt" } },
+					jsonc = { { "prettierd", "prettier", "deno_fmt" } },
 					lua = { "stylua" },
 					markdown = { { "prettierd", "prettier" } },
 					python = { "ruff_format" },

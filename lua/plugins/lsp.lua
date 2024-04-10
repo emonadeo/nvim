@@ -35,6 +35,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"astro",
+					"clangd",
 					"cssls",
 					"denols",
 					"emmet_language_server",

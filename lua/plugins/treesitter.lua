@@ -27,6 +27,7 @@ return {
 			"astro",
 			"bash",
 			"c",
+			"cpp",
 			"css",
 			"hcl",
 			"html",
