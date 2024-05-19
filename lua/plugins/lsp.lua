@@ -4,12 +4,15 @@ return {
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
+			{ "folke/neoconf.nvim" },
 			{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 		config = function()
+			require("neoconf").setup({})
+
 			local lsp_zero = require("lsp-zero")
 			lsp_zero.set_server_config({
 				capabilities = {
@@ -52,6 +55,14 @@ return {
 				},
 				handlers = {
 					lsp_zero.default_setup,
+					clangd = function()
+						require("lspconfig").clangd.setup({
+							cmd = {
+								"clangd",
+								"--offset-encoding=utf-16",
+							},
+						})
+					end,
 					denols = function()
 						require("lspconfig").denols.setup({
 							single_file_support = false,

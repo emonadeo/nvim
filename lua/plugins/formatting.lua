@@ -46,6 +46,8 @@ return {
 				},
 				formatters_by_ft = {
 					css = { { "prettierd", "prettier" } },
+					c = { "clang-format" },
+					cpp = { "clang-format" },
 					html = { { "prettierd", "prettier" } },
 					javascript = { { "prettierd", "prettier" } },
 					javascriptreact = { { "prettierd", "prettier" } },

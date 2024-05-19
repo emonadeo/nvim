@@ -1,24 +1,21 @@
 local utils = require("heirline.utils")
 
--- TODO: don't hardcode catppuccin
-local catppuccin = require("catppuccin.palettes").get_palette()
-
 local M = {}
 
 local modes = {
-	["n"] = { text = "NORMAL", color = catppuccin.green },
-	["v"] = { text = "VISUAL", color = catppuccin.blue },
-	["V"] = { text = "V-LINE", color = catppuccin.blue },
-	["\22"] = { text = "V-BLOCK", color = catppuccin.blue },
-	["s"] = { text = "SELECT", color = catppuccin.yellow },
-	["S"] = { text = "S-LINE", color = catppuccin.yellow },
-	["\19"] = { text = "S-BLOCK", color = catppuccin.yellow },
-	["i"] = { text = "INSERT", color = catppuccin.red },
-	["R"] = { text = "REPLACE", color = catppuccin.red },
-	["c"] = { text = "COMMAND", color = catppuccin.lavender },
-	["r"] = { text = "PROMPT", color = catppuccin.lavender },
-	["!"] = { text = "SHELL", color = catppuccin.lavender },
-	["t"] = { text = "TERMINAL", color = catppuccin.lavender },
+	["n"] = { text = "NORMAL", color = "green" },
+	["v"] = { text = "VISUAL", color = "blue" },
+	["V"] = { text = "V-LINE", color = "blue" },
+	["\22"] = { text = "V-BLOCK", color = "blue" },
+	["s"] = { text = "SELECT", color = "yellow" },
+	["S"] = { text = "S-LINE", color = "yellow" },
+	["\19"] = { text = "S-BLOCK", color = "yellow" },
+	["i"] = { text = "INSERT", color = "red" },
+	["R"] = { text = "REPLACE", color = "red" },
+	["c"] = { text = "COMMAND", color = "lavender" },
+	["r"] = { text = "PROMPT", color = "lavender" },
+	["!"] = { text = "SHELL", color = "lavender" },
+	["t"] = { text = "TERMINAL", color = "lavender" },
 }
 
 M.init = function(self)
@@ -30,7 +27,7 @@ M.provider = function(self)
 end
 
 M.hl = function()
-	return { fg = catppuccin.mantle, bg = modes[vim.fn.mode()].color, bold = true }
+	return { fg = "mantle", bg = modes[vim.fn.mode()].color, bold = true }
 end
 
 -- wrap component with powerline symbols

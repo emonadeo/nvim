@@ -3,13 +3,15 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000,
+		lazy = true,
 	},
 
 	-- catppuccin
 	{
 		"catppuccin/nvim",
-		priority = 1000,
 		name = "catppuccin",
+		priority = 1000,
+		lazy = true,
 		opts = {
 			no_italic = true,
 			integrations = {
@@ -33,8 +35,5 @@ return {
 				}
 			end,
 		},
-		init = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
 	},
 }
