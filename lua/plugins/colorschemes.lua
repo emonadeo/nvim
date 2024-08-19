@@ -3,7 +3,6 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000,
-		lazy = true,
 	},
 
 	-- catppuccin
@@ -11,7 +10,6 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		lazy = true,
 		opts = {
 			no_italic = true,
 			integrations = {
@@ -19,9 +17,10 @@ return {
 					enabled = true,
 					underlines = {
 						errors = { "undercurl" },
-						hints = { "undercurl" },
+						hints = { "underdotted" },
 						warnings = { "undercurl" },
-						information = { "undercurl" },
+						information = { "underdotted" },
+						ok = { "underdashed" },
 					},
 				},
 			},

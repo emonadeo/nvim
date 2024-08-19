@@ -6,6 +6,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-ui-select.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	opts = {
 		defaults = {
@@ -37,6 +38,8 @@ return {
 			{ "<leader>ff", builtin.find_files, desc = "Find Files" },
 			{ "<leader>fg", builtin.live_grep, desc = "Find Grep" },
 			{ "<leader>fc", builtin.colorscheme, desc = "Find Colorschemes" },
+			{ "<leader>fd", builtin.diagnostics, desc = "Diagnostics" },
+			{ "<leader>f.", builtin.resume, desc = "Resume" },
 		}
 	end,
 }
