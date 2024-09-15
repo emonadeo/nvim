@@ -3,6 +3,7 @@ vim.g.maplocalleader = "\\"
 
 -- Common Actions
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>us", "<cmd>nohlsearch<cr>", { desc = "Dismiss search highlight" })
 
 -- Splits
 vim.keymap.set("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Vertical Split" })

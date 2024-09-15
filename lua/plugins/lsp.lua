@@ -1,3 +1,45 @@
+local setup_keymap = function()
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(event)
+			local map = function(mode, key, desc, fn)
+				vim.keymap.set(mode, key, fn, {
+					buffer = event.buf,
+					desc = desc,
+					nowait = true,
+				})
+			end
+
+			map("n", "gd", "Go to definition", vim.lsp.buf.definition)
+			map("n", "gD", "Go to declaration", vim.lsp.buf.declaration)
+			map("n", "gi", "Go to implementation", vim.lsp.buf.implementation)
+			map("n", "go", "Go to type definition", vim.lsp.buf.type_definition)
+			map("n", "gr", "Go to reference", vim.lsp.buf.references)
+			map("n", "gK", "Show function signature", vim.lsp.buf.signature_help)
+			map("i", "<C-k>", "Show function signature", vim.lsp.buf.signature_help)
+			map("n", "<F2>", "Rename symbol", vim.lsp.buf.rename)
+			map("n", "<F3>", "Format file", function()
+				vim.lsp.buf.format({ async = true })
+			end)
+			map("x", "<F3>", "Format selection", function()
+				vim.lsp.buf.format({ async = true })
+			end)
+			map("n", "<F4>", "Show code actions", vim.lsp.buf.code_action)
+		end,
+	})
+end
+
+local setup_ui = function()
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+	vim.lsp.handlers["textDocument/signatureHelp"] =
+		vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+	vim.diagnostic.config({
+		float = { border = "rounded" },
+		signs = true,
+	})
+end
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -5,39 +47,20 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{ "folke/neoconf.nvim" },
-			{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 		config = function()
+			setup_ui()
+			setup_keymap()
 			require("neoconf").setup({})
-
-			local lsp_zero = require("lsp-zero")
-			lsp_zero.set_server_config({
-				capabilities = {
-					textDocument = {
-						foldingRange = {
-							dynamicRegistration = false,
-							lineFoldingOnly = true,
-						},
-					},
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
-			})
-			lsp_zero.extend_lspconfig()
-			lsp_zero.on_attach(function(_, bufnr)
-				lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
-			end)
-
 			require("mason").setup({})
+			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"astro",
+					"biome",
 					"clangd",
 					"cssls",
 					"denols",
@@ -54,7 +77,11 @@ return {
 					"wgsl_analyzer",
 				},
 				handlers = {
-					lsp_zero.default_setup,
+					function(server)
+						require("lspconfig")[server].setup({
+							capabilities = lsp_capabilities,
+						})
+					end,
 					clangd = function()
 						require("lspconfig").clangd.setup({
 							cmd = {
@@ -68,7 +95,7 @@ return {
 							single_file_support = false,
 							root_dir = function(startpath)
 								local util = require("lspconfig.util")
-								local deno_root = util.root_pattern("deno.json")(startpath)
+								local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
 								-- is there a deno.json?
 								if not deno_root then
 									-- no deno.json found -> disable denols
@@ -134,7 +161,7 @@ return {
 						return nil
 					end
 					-- found a tsconfig.json or package.json
-					local deno_root = util.root_pattern("deno.json")(startpath)
+					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
 					-- is there a deno.json?
 					if not deno_root then
 						-- no deno.json found -> enable tsserver

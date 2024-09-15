@@ -6,6 +6,12 @@ return {
 		opts = function()
 			return {
 				formatters = {
+					["biome-check"] = {
+						cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
+					},
+					deno_fmt = {
+						cwd = require("conform.util").root_file({ "deno.json", "deno.jsonc" }),
+					},
 					prettier = {
 						cwd = require("conform.util").root_file({
 							"package.json",
@@ -40,28 +46,25 @@ return {
 						}),
 						require_cwd = true,
 					},
-					deno_fmt = {
-						cwd = require("conform.util").root_file({ "deno.json" }),
-					},
 				},
 				formatters_by_ft = {
-					css = { { "prettierd", "prettier" } },
+					css = { "prettierd", "prettier", stop_after_first = true },
 					c = { "clang-format" },
 					cpp = { "clang-format" },
-					html = { { "prettierd", "prettier" } },
-					javascript = { { "prettierd", "prettier" } },
-					javascriptreact = { { "prettierd", "prettier" } },
-					json = { { "prettierd", "prettier", "deno_fmt" } },
-					json5 = { { "prettierd", "prettier", "deno_fmt" } },
-					jsonc = { { "prettierd", "prettier", "deno_fmt" } },
+					html = { "prettierd", "prettier", stop_after_first = true },
+					javascript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+					javascriptreact = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+					json = { "biome-check", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
+					json5 = { "biome-check", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
+					jsonc = { "biome-check", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
 					lua = { "stylua" },
-					markdown = { { "prettierd", "prettier" } },
+					markdown = { "prettierd", "prettier", stop_after_first = true },
 					python = { "ruff_format" },
-					svg = { { "prettierd", "prettier" } },
+					svg = { "prettierd", "prettier", stop_after_first = true },
 					toml = { "rustfmt" },
-					typescript = { { "prettierd", "prettier" } },
-					typescriptreact = { { "prettierd", "prettier" } },
-					yaml = { { "prettierd", "prettier" } },
+					typescript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+					typescriptreact = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+					yaml = { "prettierd", "prettier", stop_after_first = true },
 				},
 				format_on_save = { timeout_ms = 500, lsp_fallback = true },
 			}

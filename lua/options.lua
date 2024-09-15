@@ -3,9 +3,9 @@ vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
-vim.opt.list = true
 
 -- Visible Whitespace
+vim.opt.list = true
 vim.opt.listchars:append("tab:──")
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("trail:⋅")

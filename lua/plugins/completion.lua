@@ -3,7 +3,6 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lsp" },
@@ -11,25 +10,10 @@ return {
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-path" },
 			{ "onsails/lspkind.nvim" },
-			{ "rafamadriz/friendly-snippets" },
-			{ "saadparwaiz1/cmp_luasnip" },
+			{ "petertriho/cmp-git" },
 		},
 		config = function()
-			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_cmp()
-
 			local cmp = require("cmp")
-			local cmp_action = lsp_zero.cmp_action()
-
-			require("luasnip.loaders.from_vscode").lazy_load()
-
-			-- TODO: this isn't great to use
-			local keys = {
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
-				["<Tab>"] = cmp_action.luasnip_supertab(),
-				["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
-			}
 
 			cmp.setup({
 				formatting = {
@@ -40,14 +24,41 @@ return {
 						ellipsis_char = "...",
 					}),
 				},
-				mapping = cmp.mapping.preset.insert(keys),
+				mapping = cmp.mapping.preset.insert({
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = function(fallback)
+						if not cmp.select_next_item() then
+							local col = vim.fn.col(".") - 1
+							if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+								fallback()
+							else
+								cmp.complete()
+							end
+						end
+					end,
+					["<S-Tab>"] = function(fallback)
+						if not cmp.select_prev_item() then
+							local col = vim.fn.col(".") - 1
+							if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+								fallback()
+							else
+								cmp.complete()
+							end
+						end
+					end,
+				}),
 				sources = {
 					{ name = "path" },
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
-					{ name = "luasnip" },
 					{ name = "buffer" },
+				},
+				snippet = {
+					expand = function(args)
+						vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+					end,
 				},
 				window = {
 					completion = cmp.config.window.bordered(),
@@ -55,20 +66,34 @@ return {
 				},
 			})
 
-			-- use cmp for command line completion
+			-- search completion
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+
+			-- command line completion
 			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(keys),
+				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
 					{ name = "path" },
 				}, {
-					{
-						name = "cmdline",
-						option = {
-							ignore_cmds = { "Man", "!" },
-						},
-					},
+					{ name = "cmdline" },
+				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
+			})
+
+			-- git commit completion
+			cmp.setup.filetype("gitcommit", {
+				sources = cmp.config.sources({
+					{ name = "git" },
+				}, {
+					{ name = "buffer" },
 				}),
 			})
+			require("cmp_git").setup()
 		end,
 	},
 }
