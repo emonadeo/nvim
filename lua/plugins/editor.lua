@@ -158,11 +158,4 @@ return {
 			},
 		},
 	},
-
-	-- f/F indicators
-	{
-		"jinh0/eyeliner.nvim",
-		event = { "BufReadPre" },
-		opts = { highlight_on_key = true, dim = true },
-	},
 }

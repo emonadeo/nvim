@@ -22,7 +22,33 @@ return {
 	},
 
 	-- camel case and snake case motions
-	{ "chrisgrieser/nvim-spider" },
+	{
+		"chrisgrieser/nvim-spider",
+		lazy = true,
+		keys = {
+			{
+				"w",
+				function()
+					require("spider").motion("w")
+				end,
+				mode = { "n", "o", "x" },
+			},
+			{
+				"e",
+				function()
+					require("spider").motion("e")
+				end,
+				mode = { "n", "o", "x" },
+			},
+			{
+				"b",
+				function()
+					require("spider").motion("b")
+				end,
+				mode = { "n", "o", "x" },
+			},
+		},
+	},
 
 	-- open links without netrw
 	{
@@ -40,70 +66,35 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
-		config = true,
+		opts = {
+			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+			skip_ts = { "string" },
+			skip_unbalanced = true,
+			markdown = true,
+		},
 	},
 
-	-- better text objects
-	-- TODO: remove mini.ai in favor of `nvim-treesitter-textobjects`
+	-- auto tags
 	{
-		"echasnovski/mini.ai",
-		dependencies = { "nvim-treesitter-textobjects" },
-		opts = function()
-			local ai = require("mini.ai")
-			return {
-				n_lines = 500,
-				custom_textobjects = {
-					o = ai.gen_spec.treesitter({
-						a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-						i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-					}, {}),
-					f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-					c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
-					t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
-				},
-			}
-		end,
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
 	},
 
 	-- surround actions
 	{
 		"echasnovski/mini.surround",
-		keys = function(_, keys)
-			-- Populate the keys based on the user's options
-			local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
-			local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-			local mappings = {
-				{ opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
-				{ opts.mappings.delete, desc = "Delete surrounding" },
-				{ opts.mappings.find, desc = "Find right surrounding" },
-				{ opts.mappings.find_left, desc = "Find left surrounding" },
-				{ opts.mappings.highlight, desc = "Highlight surrounding" },
-				{ opts.mappings.replace, desc = "Replace surrounding" },
-				{ opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
-			}
-			mappings = vim.tbl_filter(function(m)
-				return m[1] and #m[1] > 0
-			end, mappings)
-			return vim.list_extend(mappings, keys)
-		end,
 		opts = {
+			silent = true,
 			mappings = {
-				add = "gsa", -- Add surrounding in Normal and Visual modes
-				delete = "gsd", -- Delete surrounding
-				find = "gsf", -- Find surrounding (to the right)
-				find_left = "gsF", -- Find surrounding (to the left)
-				highlight = "gsh", -- Highlight surrounding
-				replace = "gsr", -- Replace surrounding
-				update_n_lines = "gsn", -- Update `n_lines`
+				add = "Sa", -- Add surrounding in Normal and Visual modes
+				delete = "Sd", -- Delete surrounding
+				find = "Sf", -- Find surrounding (to the right)
+				find_left = "SF", -- Find surrounding (to the left)
+				highlight = "Sh", -- Highlight surrounding
+				replace = "Sr", -- Replace surrounding
+				update_n_lines = "Sn", -- Update `n_lines`
 			},
 		},
-	},
-
-	-- comments
-	{
-		"echasnovski/mini.comment",
-		version = false,
-		event = "VeryLazy",
-		config = true,
 	},
 }

@@ -26,5 +26,3 @@ require("lazy").setup("plugins", {
 		border = "rounded",
 	},
 })
-
-vim.cmd.colorscheme("catppuccin")
