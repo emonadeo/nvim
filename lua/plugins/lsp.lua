@@ -65,6 +65,8 @@ return {
 					"clangd",
 					"cssls",
 					"denols",
+					"docker_compose_language_service",
+					"dockerls",
 					"emmet_language_server",
 					"eslint",
 					"jsonls",
@@ -117,6 +119,12 @@ return {
 								-- tsconfig.json or package.json is either the same or shallower than deno.json -> enable denols
 								return deno_root
 							end,
+						})
+					end,
+					dockerls = function()
+						local util = require("lspconfig.util")
+						require("lspconfig").dockerls.setup({
+							root_dir = util.root_pattern("containerfile", "Containerfile", "dockerfile", "Dockerfile"),
 						})
 					end,
 					pyright = function()

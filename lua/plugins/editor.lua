@@ -1,27 +1,49 @@
 return {
 	-- file explorer
 	{
-		"stevearc/oil.nvim",
-		event = "VimEnter",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		"echasnovski/mini.files",
+		lazy = false,
+		version = false,
+		dependencies = { "echasnovski/mini.icons" },
 		opts = {
-			keymaps = {
-				["<leader>e"] = "actions.close",
-				["<CR>"] = "actions.select",
-				["<C-p>"] = "actions.preview",
-				["<C-l>"] = "actions.refresh",
-				["<BS>"] = "actions.parent",
-				["`"] = "actions.open_cwd",
-				["~"] = "actions.cd",
-				["gx"] = "actions.open_external",
-				["g."] = "actions.toggle_hidden",
-				["g\\"] = "actions.toggle_trash",
+			options = {
+				use_as_default_explorer = true,
 			},
 		},
+		config = function(_, opts)
+			local mini_files = require("mini.files")
+			mini_files.setup(opts)
+
+			-- add default bookmarks
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "MiniFilesExplorerOpen",
+				callback = function()
+					mini_files.set_bookmark("c", vim.fn.stdpath("config"), { desc = "Config" })
+					mini_files.set_bookmark("w", vim.fn.getcwd, { desc = "Working directory" })
+					mini_files.set_bookmark("~", "~", { desc = "Home directory" })
+				end,
+			})
+
+			-- add `g?` mapping to set current working directory to selected entry
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "MiniFilesBufferCreate",
+				callback = function(args)
+					vim.keymap.set("n", "g~", function()
+						local current_entry_path = mini_files.get_fs_entry().path
+						local current_directory = vim.fs.dirname(current_entry_path)
+						vim.fn.chdir(current_directory)
+					end, { buffer = args.data.buf_id })
+				end,
+			})
+		end,
 		keys = {
-			{ "<leader>e", "<cmd>Oil<cr>", desc = "Open File Explorer" },
+			{
+				"<leader>e",
+				function()
+					require("mini.files").open()
+				end,
+				desc = "Open File Explorer",
+			},
 		},
 	},
 
@@ -101,7 +123,7 @@ return {
 	-- diagnostics list
 	{
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "echasnovski/mini.icons" },
 		opts = {},
 		cmd = "Trouble",
 		keys = {

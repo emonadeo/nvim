@@ -26,3 +26,24 @@ require("lazy").setup("plugins", {
 		border = "rounded",
 	},
 })
+
+vim.filetype.add({
+	pattern = {
+		[".*/dockerfile"] = "dockerfile",
+		[".*/dockerfile%.%a+"] = "dockerfile",
+		[".*/containerfile"] = "dockerfile",
+		[".*/containerfile%.%a+"] = "dockerfile",
+	},
+})
+
+-- Set working directory when launching NeoVim
+-- local group_cdpwd = vim.api.nvim_create_augroup("cdpwd", { clear = true })
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	pattern = "*",
+-- 	group = group_cdpwd,
+-- 	callback = function()
+-- 		-- https://neovim.io/doc/user/builtin.html#expand()
+-- 		local current_dir = vim.fn.expand("%:p:h")
+-- 		vim.api.nvim_set_current_dir(current_dir)
+-- 	end,
+-- })

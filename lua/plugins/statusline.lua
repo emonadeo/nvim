@@ -1,7 +1,7 @@
 return {
 	"rebelot/heirline.nvim",
 	event = "UiEnter",
-	dependencies = { "catppuccin/nvim" },
+	dependencies = { "catppuccin/nvim", "echasnovski/mini.icons" },
 	opts = function()
 		local conditions = require("heirline.conditions")
 		local utils = require("heirline.utils")
@@ -32,8 +32,8 @@ return {
 				{ mode, _, condition = conditions.is_active },
 				{ provider = "", hl = { fg = "mantle" } },
 				{
-					_,
 					file_icon,
+					_,
 					file_name,
 					-- fill up space
 					{ provider = "%=" },

@@ -1,4 +1,10 @@
 return {
+	{
+		"echasnovski/mini.icons",
+		version = false,
+		opts = {},
+	},
+
 	-- indent guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
