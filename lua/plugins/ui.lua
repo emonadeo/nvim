@@ -80,18 +80,4 @@ return {
 	-- ui components
 	-- TODO: cleanup
 	{ "MunifTanjim/nui.nvim", lazy = true },
-
-	-- markdown preview
-	{
-		"toppair/peek.nvim",
-		event = { "VeryLazy" },
-		build = "deno task --quiet build:fast",
-		config = function(_, opts)
-			require("peek").setup(opts)
-			-- TODO: keybindings
-			-- refer to `configuration to change defaults`
-			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-		end,
-	},
 }

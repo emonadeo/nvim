@@ -17,6 +17,7 @@ local setup_keymap = function()
 			map("n", "gl", "Line Diagnostics", vim.diagnostic.open_float)
 			map("n", "gK", "Show Function Signature", vim.lsp.buf.signature_help)
 			map("i", "<C-k>", "Show Function Signature", vim.lsp.buf.signature_help)
+			map("n", "g.", "Show Code Actions", vim.lsp.buf.code_action)
 			map("n", "<F2>", "Rename Symbol", vim.lsp.buf.rename)
 			map("n", "<F3>", "Format File", function()
 				vim.lsp.buf.format({ async = true })
@@ -24,7 +25,6 @@ local setup_keymap = function()
 			map("x", "<F3>", "Format Selection", function()
 				vim.lsp.buf.format({ async = true })
 			end)
-			map("n", "<F4>", "Show Code Actions", vim.lsp.buf.code_action)
 		end,
 	})
 end
@@ -58,6 +58,7 @@ return {
 			require("neoconf").setup({})
 			require("mason").setup({})
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+			require("lspconfig").gleam.setup({})
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"astro",
@@ -69,12 +70,11 @@ return {
 					"dockerls",
 					"emmet_language_server",
 					"eslint",
-					"jsonls",
 					"gopls", -- go
+					"jsonls",
 					"lua_ls",
 					"pyright", -- python
-					"ruff_lsp", -- python checker/linter
-					"rust_analyzer",
+					"ruff", -- python checker/linter
 					"svelte",
 					"volar", -- vue
 					"wgsl_analyzer",
@@ -143,8 +143,8 @@ return {
 							},
 						})
 					end,
-					ruff_lsp = function()
-						require("lspconfig").ruff_lsp.setup({
+					ruff = function()
+						require("lspconfig").ruff.setup({
 							on_init = function(client)
 								client.server_capabilities.hoverProvider = false
 							end,

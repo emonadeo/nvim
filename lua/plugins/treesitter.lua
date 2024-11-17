@@ -16,6 +16,8 @@ return {
 			"c",
 			"cpp",
 			"css",
+			"dockerfile",
+			"gleam",
 			"hcl",
 			"html",
 			"java",
