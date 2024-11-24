@@ -1,8 +1,18 @@
 {
-	"format.enable": false,
-	"runtime.version": "LuaJIT",
-	"runtime.path": ["lua/?.lua", "lua/?/init.lua"],
-	"diagnostics.globals": ["vim"],
-	"workspace.checkThirdParty": false,
-	"workspace.library": ["$VIMRUNTIME", "${3rd}/luv/library"]
+	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+	"diagnostics": {
+		"globals": [
+			"vim"
+		]
+	},
+	"format": {
+		"enable": false
+	},
+	"runtime": {
+		"version": "Lua 5.4",
+		"path": [
+			"lua/?.lua",
+			"lua/?/init.lua"
+		]
+	}
 }

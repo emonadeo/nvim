@@ -1,19 +1,6 @@
 return {
-	{
-		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			signs = {
-				add = { text = "┃" },
-				change = { text = "┃" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "╋" },
-			},
-		},
-	},
-	{
-		"tpope/vim-fugitive",
-		cmd = "Git",
-	},
+	"echasnovski/mini-git",
+	version = false,
+	main = "mini.git",
+	opts = {},
 }

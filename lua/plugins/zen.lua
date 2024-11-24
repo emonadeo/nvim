@@ -1,5 +1,4 @@
 return {
-	-- zen mode
 	{
 		"folke/zen-mode.nvim",
 		opts = {
@@ -16,12 +15,14 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+			{
+				"<leader>z",
+				function() require("zen-mode").toggle() end,
+				desc = "Toggle Zen Mode",
+			},
 		},
 	},
-
-	-- fade out inactive text blocks
 	{
 		"folke/twilight.nvim",
-	}
+	},
 }

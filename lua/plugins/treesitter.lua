@@ -1,12 +1,8 @@
-vim.filetype.add({ extension = { wgsl = "wgsl" } })
-
 return {
 	"nvim-treesitter/nvim-treesitter",
 	version = false, -- last release is way too old and doesn't work on Windows
-	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-	cmd = { "TSUpdateSync" },
 	opts = {
 		highlight = { enable = true },
 		indent = { enable = true },
@@ -113,8 +109,16 @@ return {
 					["[m"] = { query = "@function.outer", desc = "Previous Function Start" },
 					["[f"] = { query = "@function.outer", desc = "Previous Function Start" },
 					["[c"] = { query = "@class.outer", desc = "Previous Class Start" },
-					["[s"] = { query = "@scope", query_group = "locals", desc = "Previous Scope Start" },
-					["[z"] = { query = "@fold", query_group = "folds", desc = "Previous Fold Start" },
+					["[s"] = {
+						query = "@scope",
+						query_group = "locals",
+						desc = "Previous Scope Start",
+					},
+					["[z"] = {
+						query = "@fold",
+						query_group = "folds",
+						desc = "Previous Fold Start",
+					},
 				},
 				goto_previous_end = {
 					-- ["[O"] = {
@@ -124,24 +128,15 @@ return {
 					["[M"] = { query = "@function.outer", desc = "Previous Function End" },
 					["[F"] = { query = "@function.outer", desc = "Previous Function End" },
 					["[C"] = { query = "@class.outer", desc = "Previous Class End" },
-					["[S"] = { query = "@scope", query_group = "locals", desc = "Previous Scope End" },
+					["[S"] = {
+						query = "@scope",
+						query_group = "locals",
+						desc = "Previous Scope End",
+					},
 					["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous Fold End" },
 				},
 			},
 		},
 	},
-	config = function(_, opts)
-		if type(opts.ensure_installed) == "table" then
-			---@type table<string, boolean>
-			local added = {}
-			opts.ensure_installed = vim.tbl_filter(function(lang)
-				if added[lang] then
-					return false
-				end
-				added[lang] = true
-				return true
-			end, opts.ensure_installed)
-		end
-		require("nvim-treesitter.configs").setup(opts)
-	end,
+	init = function() vim.filetype.add({ extension = { wgsl = "wgsl" } }) end,
 }
