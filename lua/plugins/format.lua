@@ -9,9 +9,11 @@ return {
 			formatters = {
 				["biome-check"] = {
 					cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
+					require_cwd = true,
 				},
 				deno_fmt = {
 					cwd = require("conform.util").root_file({ "deno.json", "deno.jsonc" }),
+					require_cwd = true,
 				},
 				prettier = {
 					cwd = require("conform.util").root_file({

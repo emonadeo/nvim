@@ -17,6 +17,7 @@ return {
 		},
 		extensions = {
 			fzf = {},
+			aerial = {},
 		},
 		pickers = {
 			find_files = {
@@ -25,7 +26,6 @@ return {
 					"rg",
 					"--files",
 					"--hidden",
-					"--no-ignore",
 					"--glob",
 					"!**/.git/*",
 				},
@@ -35,6 +35,7 @@ return {
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)
+		telescope.load_extension("aerial")
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 	end,
@@ -45,7 +46,7 @@ return {
 			{ "<leader>ff", builtin.find_files, desc = "Find Files" },
 			{ "<leader>fg", builtin.live_grep, desc = "Find Grep" },
 			{ "<leader>fc", builtin.colorscheme, desc = "Find Colorschemes" },
-			{ "<leader>fd", builtin.diagnostics, desc = "Diagnostics" },
+			{ "<leader>fd", builtin.diagnostics, desc = "Find Problems" },
 			{ "<leader>f.", builtin.resume, desc = "Resume" },
 		}
 	end,
