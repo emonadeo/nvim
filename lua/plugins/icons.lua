@@ -1,1 +1,9 @@
-return { "echasnovski/mini.icons", version = false, opts = {} }
+return {
+	"echasnovski/mini.icons",
+	version = false,
+	opts = {
+		lsp = {
+			copilot = { glyph = "" },
+		},
+	},
+}

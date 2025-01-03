@@ -1,3 +1,4 @@
+-- TODO: Refine
 return {
 	"folke/trouble.nvim",
 	dependencies = { "echasnovski/mini.icons" },

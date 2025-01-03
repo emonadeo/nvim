@@ -1,3 +1,4 @@
+-- TODO: Consider mini.pick (claims better perf)
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
@@ -17,7 +18,6 @@ return {
 		},
 		extensions = {
 			fzf = {},
-			aerial = {},
 		},
 		pickers = {
 			find_files = {
@@ -35,7 +35,6 @@ return {
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)
-		telescope.load_extension("aerial")
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 	end,

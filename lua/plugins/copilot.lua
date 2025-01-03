@@ -3,18 +3,7 @@ return {
 	cmd = "Copilot",
 	event = "InsertEnter",
 	opts = {
-		panel = {
-			enabled = false,
-		},
-		suggestion = {
-			enabled = true,
-			auto_trigger = false,
-			keymap = {
-				accept = "<C-'>",
-				accept_word = false,
-				accept_line = false,
-				dismiss = "<C-]>",
-			},
-		},
+		panel = { enabled = false },
+		suggestion = { enabled = false },
 	},
 }

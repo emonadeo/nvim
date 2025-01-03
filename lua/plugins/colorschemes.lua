@@ -56,9 +56,11 @@ return {
 		custom_highlights = function(colors)
 			return {
 				-- Blink
+				BlinkCmpDocBorder = { link = "FloatBorder" },
 				BlinkCmpMenu = { link = "NormalFloat" },
 				BlinkCmpMenuBorder = { link = "FloatBorder" },
 				BlinkCmpMenuSelection = { link = "Visual" },
+				BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
 				-- Folds
 				Folded = { link = "Normal" },
 				UfoFoldedEllipsis = { link = "Normal" },
