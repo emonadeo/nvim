@@ -19,13 +19,29 @@ return {
 	},
 	keys = {
 		{
-			"<leader>e",
+			"<leader>ee",
+			function()
+				local mini_files = require("mini.files")
+				mini_files.open()
+			end,
+			desc = "Open directory",
+		},
+		{
+			"<leader>ef",
 			function()
 				local mini_files = require("mini.files")
 				mini_files.open(vim.api.nvim_buf_get_name(0), false)
 				mini_files.reveal_cwd()
 			end,
-			desc = "Open File Explorer",
+			desc = "Open file directory",
+		},
+		{
+			"<leader>ec",
+			function()
+				local mini_files = require("mini.files")
+				mini_files.open(vim.fn.stdpath("config"))
+			end,
+			desc = "Open config directory",
 		},
 	},
 	init = function()
@@ -44,8 +60,8 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "MiniFilesBufferCreate",
 			callback = function(args)
-				-- `g~` set current working directory to selected entry
-				vim.keymap.set("n", "g~", function()
+				-- `!` set current working directory to selected entry
+				vim.keymap.set("n", "!", function()
 					local current_entry_path = require("mini.files").get_fs_entry().path
 					local current_directory = vim.fs.dirname(current_entry_path)
 					vim.fn.chdir(current_directory)

@@ -28,12 +28,6 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 100
 vim.opt.foldlevelstart = 100
 
-local signs = { Error = " ", Warn = " ", Hint = "󱠂 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 vim.filetype.add({
 	pattern = {
 		[".*/dockerfile"] = "dockerfile",
@@ -42,6 +36,8 @@ vim.filetype.add({
 		[".*/containerfile%.%a+"] = "dockerfile",
 	},
 })
+
+vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
 
 -- Set working directory when launching NeoVim
 -- local group_cdpwd = vim.api.nvim_create_augroup("cdpwd", { clear = true })

@@ -135,6 +135,16 @@ return {
 		-- TypeScript `npm:@vtsls/language-server`
 		lsp.vtsls.setup({
 			capabilities = capabilities,
+			single_file_support = false,
+			root_dir = function(startpath)
+				local ts_root =
+					util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(startpath)
+				if not ts_root then return nil end
+				local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
+				if not deno_root then return ts_root end
+				if string.len(deno_root) > string.len(ts_root) then return nil end
+				return ts_root
+			end,
 		})
 
 		-- WSGL `cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer`
@@ -166,6 +176,7 @@ return {
 				vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "g.", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "cd", vim.lsp.buf.rename, opts)
 				vim.keymap.set({ "n", "x" }, "<F3>", vim.lsp.buf.format, opts)
 			end,
 		})
