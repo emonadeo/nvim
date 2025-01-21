@@ -1,6 +1,11 @@
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
+	opts = {
+		icons = {
+			mappings = false,
+		},
+	},
 	triggers = {
 		{ "<leader>", mode = { "n", "v" } },
 	},

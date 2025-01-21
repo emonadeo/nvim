@@ -24,7 +24,7 @@ return {
 				local mini_files = require("mini.files")
 				mini_files.open()
 			end,
-			desc = "Open directory",
+			desc = "Current working directory",
 		},
 		{
 			"<leader>ef",
@@ -33,7 +33,7 @@ return {
 				mini_files.open(vim.api.nvim_buf_get_name(0), false)
 				mini_files.reveal_cwd()
 			end,
-			desc = "Open file directory",
+			desc = "File directory",
 		},
 		{
 			"<leader>ec",
@@ -41,7 +41,7 @@ return {
 				local mini_files = require("mini.files")
 				mini_files.open(vim.fn.stdpath("config"))
 			end,
-			desc = "Open config directory",
+			desc = "Config directory",
 		},
 	},
 	init = function()

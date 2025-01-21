@@ -41,11 +41,14 @@ return {
 	keys = function()
 		local builtin = require("telescope.builtin")
 		return {
-			{ "<leader>fb", builtin.buffers, desc = "Find Buffers" },
-			{ "<leader>ff", builtin.find_files, desc = "Find Files" },
-			{ "<leader>fg", builtin.live_grep, desc = "Find Grep" },
-			{ "<leader>fc", builtin.colorscheme, desc = "Find Colorschemes" },
-			{ "<leader>fd", builtin.diagnostics, desc = "Find Problems" },
+			{ "<leader>fb", builtin.buffers, desc = "Buffers" },
+			{ "<leader>ff", builtin.find_files, desc = "Files" },
+			{ "<leader>fg", builtin.live_grep, desc = "Grep" },
+			{ "<leader>fc", builtin.colorscheme, desc = "Colorschemes" },
+			{ "<leader>fd", builtin.diagnostics, desc = "Diagnostics" },
+			{ "<leader>fs", builtin.lsp_document_symbols, desc = "Symbols" },
+			{ "<leader>fS", builtin.lsp_workspace_symbols, desc = "Symbols (Workspace)" },
+			{ "<leader>fr", builtin.lsp_references, desc = "References" },
 			{ "<leader>f.", builtin.resume, desc = "Resume" },
 		}
 	end,
