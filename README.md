@@ -18,6 +18,8 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 | Signature help        | <kbd>gs</kbd>                  | [`nvim-lspconfig`](https://github.com/echasnovski/mini.diff) |
 | Show code actions     | <kbd>g.</kbd>                  | [`nvim-lspconfig`](https://github.com/echasnovski/mini.diff) |
 | Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> | [`nvim-lspconfig`](https://github.com/echasnovski/mini.diff) |
+| Next Reference        | <kbd>]</kbd><kbd>]</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
+| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
 | Format                | <kbd>F3</kbd>                  |                                                              |
 
 ### Diagnostics

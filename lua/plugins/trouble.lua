@@ -95,5 +95,14 @@ return {
 			end,
 			desc = "Symbols",
 		},
+		{
+			"<leader>et",
+			function()
+				require("trouble").toggle({
+					mode = "todo",
+				})
+			end,
+			desc = "Todos",
+		},
 	},
 }

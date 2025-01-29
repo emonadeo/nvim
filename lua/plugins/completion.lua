@@ -11,6 +11,7 @@ return {
 			"giuxtaposition/blink-cmp-copilot",
 			"rafamadriz/friendly-snippets",
 		},
+		event = "InsertEnter",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
@@ -26,7 +27,17 @@ return {
 						winblend = 50,
 					},
 				},
+				list = {
+					selection = {
+						preselect = true,
+						auto_insert = false,
+					},
+				},
 				menu = {
+					auto_show = function(ctx)
+						return ctx.mode ~= "cmdline"
+							or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+					end,
 					enabled = true,
 					border = "rounded",
 					winblend = 50,
@@ -49,7 +60,13 @@ return {
 					},
 				},
 			},
-			keymap = { preset = "default" },
+			keymap = {
+				preset = "enter",
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-u>"] = { "scroll_documentation_up", "fallback" },
+				["<C-d>"] = { "scroll_documentation_down", "fallback" },
+			},
 			signature = {
 				enabled = true,
 				window = {

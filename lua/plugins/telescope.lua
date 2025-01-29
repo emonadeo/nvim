@@ -8,6 +8,7 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-ui-select.nvim",
 		"neovim/nvim-lspconfig",
+		"folke/todo-comments.nvim",
 	},
 	opts = {
 		defaults = {
@@ -37,9 +38,11 @@ return {
 		telescope.setup(opts)
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
+		telescope.load_extension("todo-comments")
 	end,
 	keys = function()
 		local builtin = require("telescope.builtin")
+		local extensions = require("telescope").extensions
 		return {
 			{ "<leader>fb", builtin.buffers, desc = "Buffers" },
 			{ "<leader>ff", builtin.find_files, desc = "Files" },
@@ -49,6 +52,7 @@ return {
 			{ "<leader>fs", builtin.lsp_document_symbols, desc = "Symbols" },
 			{ "<leader>fS", builtin.lsp_workspace_symbols, desc = "Symbols (Workspace)" },
 			{ "<leader>fr", builtin.lsp_references, desc = "References" },
+			{ "<leader>ft", extensions["todo-comments"].todo, desc = "Todos" },
 			{ "<leader>f.", builtin.resume, desc = "Resume" },
 		}
 	end,

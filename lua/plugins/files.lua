@@ -2,7 +2,7 @@ return {
 	"echasnovski/mini.files",
 	lazy = false,
 	version = false,
-	dependencies = { "echasnovski/mini.icons" },
+	dependencies = { "echasnovski/mini.icons", "folke/snacks.nvim" },
 	opts = {
 		mappings = {
 			go_in = "", -- unset default
@@ -45,6 +45,15 @@ return {
 		},
 	},
 	init = function()
+		-- TODO: Integrate file renaming with lsp (using folke/snacks.rename)
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniFilesActionRename",
+			callback = function(event)
+				local snacks = require("snacks")
+				snacks.rename.on_rename_file(event.data.from, event.data.to)
+			end,
+		})
+
 		-- Add default bookmarks
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "MiniFilesExplorerOpen",
