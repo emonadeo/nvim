@@ -2,21 +2,22 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
-	---@module "conform"
-	---@type conform.setupOpts
 	opts = function()
+		local util = require("conform.util")
+		---@module "conform"
+		---@type conform.setupOpts
 		return {
 			formatters = {
 				["biome-check"] = {
-					cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
+					cwd = util.root_file({ "biome.json", "biome.jsonc" }),
 					require_cwd = true,
 				},
 				deno_fmt = {
-					cwd = require("conform.util").root_file({ "deno.json", "deno.jsonc" }),
+					cwd = util.root_file({ "deno.json", "deno.jsonc" }),
 					require_cwd = true,
 				},
 				prettier = {
-					cwd = require("conform.util").root_file({
+					cwd = util.root_file({
 						"package.json",
 						".prettierrc",
 						".prettierrc.json",
@@ -33,7 +34,7 @@ return {
 					require_cwd = true,
 				},
 				prettierd = {
-					cwd = require("conform.util").root_file({
+					cwd = util.root_file({
 						"package.json",
 						".prettierrc",
 						".prettierrc.json",
