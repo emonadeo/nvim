@@ -1,9 +1,5 @@
 return {
 	{
-		"folke/lazydev.nvim",
-		ft = "lua",
-	},
-	{
 		"Saghen/blink.cmp",
 		version = "*",
 		dependencies = {
