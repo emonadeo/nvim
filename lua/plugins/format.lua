@@ -17,7 +17,7 @@ return {
 					require_cwd = true,
 				},
 				dprint = {
-					cwd = require("conform.util").root_file({ "dprint.json", "dprint.jsonc" }),
+					cwd = util.root_file({ "dprint.json", "dprint.jsonc" }),
 					require_cwd = true,
 				},
 				prettier = {
