@@ -16,6 +16,10 @@ return {
 					cwd = util.root_file({ "deno.json", "deno.jsonc" }),
 					require_cwd = true,
 				},
+				dprint = {
+					cwd = require("conform.util").root_file({ "dprint.json", "dprint.jsonc" }),
+					require_cwd = true,
+				},
 				prettier = {
 					cwd = util.root_file({
 						"package.json",
@@ -52,18 +56,33 @@ return {
 				},
 			},
 			formatters_by_ft = {
-				css = { "prettierd", "prettier", stop_after_first = true },
+				astro = {
+					"dprint",
+					"biome-check",
+					"prettierd",
+					"prettier",
+					stop_after_first = true,
+				},
+				css = { "dprint", "prettierd", "prettier", stop_after_first = true },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
-				html = { "prettierd", "prettier", stop_after_first = true },
-				javascript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+				html = { "dprint", "prettierd", "prettier", stop_after_first = true },
+				javascript = {
+					"dprint",
+					"biome-check",
+					"prettierd",
+					"prettier",
+					stop_after_first = true,
+				},
 				javascriptreact = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
 					stop_after_first = true,
 				},
 				json = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
@@ -71,6 +90,7 @@ return {
 					stop_after_first = true,
 				},
 				json5 = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
@@ -78,6 +98,7 @@ return {
 					stop_after_first = true,
 				},
 				jsonc = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
@@ -85,11 +106,12 @@ return {
 					stop_after_first = true,
 				},
 				lua = { "stylua" },
-				markdown = { "prettierd", "prettier", stop_after_first = true },
-				python = { "ruff_format" },
-				svg = { "prettierd", "prettier", stop_after_first = true },
-				toml = { "rustfmt" },
+				markdown = { "dprint", "prettierd", "prettier", stop_after_first = true },
+				python = { "dprint", "ruff_format" },
+				svg = { "dprint", "prettierd", "prettier", stop_after_first = true },
+				toml = { "dprint", "rustfmt" },
 				typescript = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
@@ -97,13 +119,14 @@ return {
 					stop_after_first = true,
 				},
 				typescriptreact = {
+					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
 					"deno_fmt",
 					stop_after_first = true,
 				},
-				yaml = { "prettierd", "prettier", stop_after_first = true },
+				yaml = { "dprint", "prettierd", "prettier", stop_after_first = true },
 			},
 			format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		}

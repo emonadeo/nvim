@@ -147,7 +147,7 @@ return {
 					if not ts_root then return nil end
 					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
 					if not deno_root then return ts_root end
-					if string.len(deno_root) > string.len(ts_root) then return nil end
+					if string.len(deno_root) >= string.len(ts_root) then return nil end
 					return ts_root
 				end,
 			})
