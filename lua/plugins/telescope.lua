@@ -9,6 +9,7 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		"neovim/nvim-lspconfig",
 		"folke/todo-comments.nvim",
+		"rcarriga/nvim-notify",
 	},
 	opts = {
 		defaults = {
@@ -39,6 +40,7 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 		telescope.load_extension("todo-comments")
+		telescope.load_extension("notify")
 	end,
 	keys = function()
 		local builtin = require("telescope.builtin")
@@ -53,6 +55,7 @@ return {
 			{ "<leader>fS", builtin.lsp_workspace_symbols, desc = "Symbols (Workspace)" },
 			{ "<leader>fr", builtin.lsp_references, desc = "References" },
 			{ "<leader>ft", extensions["todo-comments"].todo, desc = "Todos" },
+			{ "<leader>fn", extensions.notify.notify, desc = "Notifications" },
 			{ "<leader>f.", builtin.resume, desc = "Resume" },
 		}
 	end,
