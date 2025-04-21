@@ -135,6 +135,11 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- TOML `brew:taplo`
+			lsp.taplo.setup({
+				capabilities = capabilities,
+			})
+
 			-- TypeScript `npm:@vtsls/language-server`
 			lsp.vtsls.setup({
 				capabilities = capabilities,
@@ -158,10 +163,6 @@ return {
 			})
 
 			-- Rounded borders
-			vim.lsp.handlers["textDocument/hover"] =
-				vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 			vim.diagnostic.config({
 				float = { border = "rounded" },
 				signs = true,
@@ -172,13 +173,19 @@ return {
 				desc = "LSP actions",
 				callback = function(event)
 					local opts = { buffer = event.buf }
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					local float_opts = { border = "rounded" }
+					vim.keymap.set("n", "K", function() vim.lsp.buf.hover(float_opts) end, opts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-					vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
+					vim.keymap.set(
+						"n",
+						"gs",
+						function() vim.lsp.buf.signature_help(float_opts) end,
+						opts
+					)
 					vim.keymap.set("n", "g.", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "cd", vim.lsp.buf.rename, opts)
