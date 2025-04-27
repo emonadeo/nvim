@@ -112,6 +112,11 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Nushell `nushell`
+			lsp.nushell.setup({
+				capabilities = capabilities,
+			})
+
 			-- Python `npm:pyright`
 			lsp.pyright.setup({
 				capabilities = capabilities,

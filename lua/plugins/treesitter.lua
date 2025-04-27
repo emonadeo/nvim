@@ -29,6 +29,8 @@ return {
 				"markdown",
 				"markdown_inline",
 				"ninja",
+				"nix",
+				"nu",
 				"python",
 				"query",
 				"regex",
