@@ -4,7 +4,6 @@ return {
 		version = "*",
 		dependencies = {
 			"echasnovski/mini.icons",
-			"giuxtaposition/blink-cmp-copilot",
 			"rafamadriz/friendly-snippets",
 		},
 		event = "InsertEnter",
@@ -71,22 +70,8 @@ return {
 				},
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
+				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 				providers = {
-					copilot = {
-						name = "copilot",
-						module = "blink-cmp-copilot",
-						async = true,
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "Copilot"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
-						end,
-					},
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
