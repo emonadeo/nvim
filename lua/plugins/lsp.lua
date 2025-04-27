@@ -107,6 +107,11 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Nix `nil`
+			lsp.nil_ls.setup({
+				capabilities = capabilities,
+			})
+
 			-- Python `npm:pyright`
 			lsp.pyright.setup({
 				capabilities = capabilities,
