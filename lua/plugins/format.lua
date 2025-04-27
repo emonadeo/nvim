@@ -116,9 +116,10 @@ return {
 					"deno_fmt",
 					stop_after_first = true,
 				},
-				python = { "dprint", "ruff_format" },
+				nix = { "nixfmt" },
+				python = { "dprint", "ruff_format", stop_after_first = true },
 				svg = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
-				toml = { "dprint", "rustfmt" },
+				toml = { "dprint", "rustfmt", stop_after_first = true },
 				typescript = {
 					"dprint",
 					"biome-check",
