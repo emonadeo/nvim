@@ -72,21 +72,37 @@ return {
 	keys = {
 		{
 			"<leader>ed",
-			function() require("trouble").toggle("diagnostics") end,
 			desc = "Diagnostics",
+			function()
+				require("trouble").toggle({
+					mode = "diagnostics",
+					filter = { buf = 0 },
+					focus = false,
+				})
+			end,
 		},
 		{
 			"<leader>eD",
 			function()
 				require("trouble").toggle({
 					mode = "diagnostics",
-					filter = { buf = 0 },
+					focus = false,
 				})
 			end,
-			desc = "Buffer Diagnostics",
+			desc = "All Diagnostics",
 		},
 		{
 			"<leader>es",
+			function()
+				require("trouble").toggle({
+					mode = "lsp_document_symbols",
+					focus = false,
+				})
+			end,
+			desc = "LSP Symbols",
+		},
+		{
+			"<leader>eS",
 			function()
 				require("trouble").toggle({
 					mode = "symbols",
@@ -100,9 +116,21 @@ return {
 			function()
 				require("trouble").toggle({
 					mode = "todo",
+					filter = { buf = 0 },
+					focus = false,
 				})
 			end,
 			desc = "Todos",
+		},
+		{
+			"<leader>eT",
+			function()
+				require("trouble").toggle({
+					mode = "todo",
+					focus = false,
+				})
+			end,
+			desc = "All Todos",
 		},
 	},
 }

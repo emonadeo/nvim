@@ -1,6 +1,3 @@
-vim.g.neovide_cursor_vfx_mode = "railgun"
-vim.g.neovide_cursor_vfx_particle_density = 14.0
-
 vim.g.neovide_padding_top = 48
 vim.g.neovide_padding_bottom = 48
 vim.g.neovide_padding_right = 48

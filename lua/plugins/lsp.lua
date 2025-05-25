@@ -28,6 +28,11 @@ return {
 				},
 			})
 
+			-- ESLint `npm:vscode-langservers-extracted`
+			lsp.eslint.setup({
+				capabilities = capabilities,
+			})
+
 			-- CSS `npm:vscode-langservers-extracted`
 			lsp.cssls.setup({
 				capabilities = capabilities,
