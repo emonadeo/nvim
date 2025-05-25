@@ -19,7 +19,7 @@ return {
 					auto_show = true,
 					window = {
 						border = "rounded",
-						winblend = 50,
+						winblend = vim.g.neovide and 50 or 0,
 					},
 				},
 				list = {
@@ -35,7 +35,7 @@ return {
 					end,
 					enabled = true,
 					border = "rounded",
-					winblend = 50,
+					winblend = vim.g.neovide and 50 or 0,
 					draw = {
 						components = {
 							kind_icon = {
@@ -66,7 +66,7 @@ return {
 				enabled = true,
 				window = {
 					border = "rounded",
-					winblend = 50,
+					winblend = vim.g.neovide and 50 or 0,
 				},
 			},
 			sources = {

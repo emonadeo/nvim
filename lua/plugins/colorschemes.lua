@@ -43,11 +43,12 @@ return {
 			},
 			notify = true,
 			octo = true,
-			telescope = {
-				enabled = true,
-			},
 			lsp_trouble = true,
 			render_markdown = true,
+			snacks = {
+				enabled = false,
+				indent_scope_color = "",
+			},
 			treesitter = true,
 			treesitter_context = true,
 			ufo = true,

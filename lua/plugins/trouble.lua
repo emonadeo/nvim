@@ -1,6 +1,6 @@
 return {
 	"folke/trouble.nvim",
-	dependencies = { "echasnovski/mini.icons" },
+	dependencies = { "echasnovski/mini.icons", "folke/todo-comments.nvim" },
 	opts = {
 		-- `file_icon` has a hardcoded space in it.
 		-- https://github.com/folke/trouble.nvim/blob/v3.6.0/lua/trouble/format.lua#L115-L121
@@ -10,7 +10,7 @@ return {
 					{ "filename", format = "{file_icon}{basename} {count}" },
 				},
 			},
-			telescope = {
+			todo = {
 				groups = {
 					{ "filename", format = "{file_icon}{filename} {count}" },
 				},
@@ -105,7 +105,7 @@ return {
 			"<leader>eS",
 			function()
 				require("trouble").toggle({
-					mode = "symbols",
+					mode = "lsp_workspace_symbols",
 					focus = false,
 				})
 			end,
