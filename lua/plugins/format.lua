@@ -117,7 +117,6 @@ return {
 					stop_after_first = true,
 				},
 				nix = { "nixfmt" },
-				nu = { "nufmt" },
 				python = { "dprint", "ruff_format", stop_after_first = true },
 				svg = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
 				toml = { "dprint", "rustfmt", stop_after_first = true },
