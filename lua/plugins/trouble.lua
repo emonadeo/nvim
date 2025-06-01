@@ -78,6 +78,9 @@ return {
 					mode = "diagnostics",
 					filter = { buf = 0 },
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 		},
@@ -87,6 +90,9 @@ return {
 				require("trouble").toggle({
 					mode = "diagnostics",
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 			desc = "All Diagnostics",
@@ -97,6 +103,9 @@ return {
 				require("trouble").toggle({
 					mode = "lsp_document_symbols",
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 			desc = "LSP Symbols",
@@ -107,6 +116,9 @@ return {
 				require("trouble").toggle({
 					mode = "lsp_workspace_symbols",
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 			desc = "Symbols",
@@ -118,6 +130,9 @@ return {
 					mode = "todo",
 					filter = { buf = 0 },
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 			desc = "Todos",
@@ -128,6 +143,9 @@ return {
 				require("trouble").toggle({
 					mode = "todo",
 					focus = false,
+					win = {
+						position = "right",
+					},
 				})
 			end,
 			desc = "All Todos",
