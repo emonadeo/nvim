@@ -5,6 +5,7 @@ return {
 	priority = 1000,
 	opts = {
 		no_italic = true,
+		transparent_background = not vim.g.neovide,
 		default_integrations = false,
 		integrations = {
 			blink_cmp = true,
