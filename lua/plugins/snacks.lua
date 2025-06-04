@@ -6,9 +6,10 @@ return {
 	---@module "snacks"
 	---@type snacks.Config
 	opts = {
+		indent = { enabled = true },
+		picker = { enabled = true },
 		rename = { enabled = true },
 		words = { enabled = true },
-		picker = { enabled = true },
 		statuscolumn = {
 			enabled = true,
 			left = { "mark", "sign" },
