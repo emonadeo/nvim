@@ -9,8 +9,11 @@ vim.opt.shiftwidth = 0
 
 -- Visible Whitespace
 vim.opt.list = true
-vim.opt.listchars:append({ tab = "──", space = "⋅", trail = "⋅" })
-vim.opt.fillchars:append({ diff = "╱" })
+vim.opt.listchars = {
+	tab = "──",
+	space = "⋅",
+	trail = "⋅",
+}
 
 -- Do not break long lines
 vim.opt.wrap = false
@@ -22,11 +25,22 @@ vim.opt.showmode = false -- Dont show mode since we have a statusline
 vim.opt.laststatus = 2
 vim.opt.cmdheight = 0
 
--- TODO: Remove in favor of nvim-ufo?
--- Folding
+-- Fold
 vim.opt.foldenable = true
-vim.opt.foldlevel = 100
-vim.opt.foldlevelstart = 100
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldtext = ""
+vim.opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+
+vim.opt.colorcolumn = "80"
 
 vim.filetype.add({
 	pattern = {

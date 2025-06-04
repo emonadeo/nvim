@@ -52,7 +52,6 @@ return {
 			},
 			treesitter = true,
 			treesitter_context = true,
-			ufo = true,
 			which_key = true,
 		},
 		custom_highlights = function(colors)
@@ -63,9 +62,10 @@ return {
 				BlinkCmpMenuBorder = { link = "FloatBorder" },
 				BlinkCmpMenuSelection = { link = "Visual" },
 				BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
+				-- Color Column
+				ColorColumn = { link = "CursorLine" },
 				-- Folds
-				Folded = { link = "Normal" },
-				UfoFoldedEllipsis = { link = "Normal" },
+				Folded = { link = "CursorLine" },
 				-- Disable background of statusline; we use heirline.nvim (see statusline.lua)
 				StatusLine = { bg = colors.none },
 				StatusLineNC = { bg = colors.none },
