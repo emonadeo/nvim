@@ -6,21 +6,23 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			local lsp = require("lspconfig")
 			local util = require("lspconfig.util")
 
 			-- Astro `npm:@astrojs/language-server`
-			lsp.astro.setup({
+			vim.lsp.enable("astro")
+			vim.lsp.config("astro", {
 				capabilities = capabilities,
 			})
 
 			-- Biome `npm:@biomejs/biome`
-			lsp.biome.setup({
+			vim.lsp.enable("biome")
+			vim.lsp.config("biome", {
 				capabilities = capabilities,
 			})
 
 			-- C `brew:llvm`
-			lsp.clangd.setup({
+			vim.lsp.enable("clangd")
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				cmd = {
 					"clangd",
@@ -29,19 +31,22 @@ return {
 			})
 
 			-- ESLint `npm:vscode-langservers-extracted`
-			lsp.eslint.setup({
+			vim.lsp.enable("eslint")
+			vim.lsp.config("eslint", {
 				capabilities = capabilities,
 			})
 
 			-- CSS `npm:vscode-langservers-extracted`
-			lsp.cssls.setup({
+			vim.lsp.enable("cssls")
+			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
 
 			-- Deno `brew:deno`
-			lsp.denols.setup({
+			vim.lsp.enable("denols")
+			vim.lsp.config("denols", {
 				capabilities = capabilities,
-				single_file_support = false,
+				workspace_required = true,
 				root_dir = function(startpath)
 					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
 					-- is there a deno.json?
@@ -69,7 +74,8 @@ return {
 			})
 
 			-- Docker `npm:dockerfile-language-server-nodejs`
-			lsp.dockerls.setup({
+			vim.lsp.enable("dockerls")
+			vim.lsp.config("dockerls", {
 				capabilities = capabilities,
 				root_dir = util.root_pattern(
 					"containerfile",
@@ -80,27 +86,32 @@ return {
 			})
 
 			-- Emmet `npm:@olrtg/emmet-language-server`
-			lsp.emmet_language_server.setup({
+			vim.lsp.enable("emmet_language_server")
+			vim.lsp.config("emmet_language_server", {
 				capabilities = capabilities,
 			})
 
 			-- Gleam `brew:gleam`
-			lsp.gleam.setup({
+			vim.lsp.enable("gleam")
+			vim.lsp.config("gleam", {
 				capabilities = capabilities,
 			})
 
 			-- Go `brew:go`
-			lsp.gopls.setup({
+			vim.lsp.enable("gopls")
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 			})
 
 			-- HTML `npm:vscode-langservers-extracted`
-			lsp.html.setup({
+			vim.lsp.enable("html")
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 			})
 
 			-- JSON `npm:vscode-langservers-extracted`
-			lsp.jsonls.setup({
+			vim.lsp.enable("jsonls")
+			vim.lsp.config("jsonls", {
 				capabilities = capabilities,
 				init_options = {
 					provideFormatter = false,
@@ -108,22 +119,26 @@ return {
 			})
 
 			-- Lua `brew:lua-language-server`
-			lsp.lua_ls.setup({
+			vim.lsp.enable("lua_ls")
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
 
 			-- Nix `nil`
-			lsp.nil_ls.setup({
+			vim.lsp.enable("nil_ls")
+			vim.lsp.config("nil_ls", {
 				capabilities = capabilities,
 			})
 
 			-- Nushell `nushell`
-			lsp.nushell.setup({
+			vim.lsp.enable("nushell")
+			vim.lsp.config("nushell", {
 				capabilities = capabilities,
 			})
 
 			-- Python `npm:pyright`
-			lsp.pyright.setup({
+			vim.lsp.enable("pyright")
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				settings = {
 					pyright = {
@@ -140,25 +155,36 @@ return {
 			})
 
 			-- Python (Linter/Formatter) `brew:ruff`
-			lsp.ruff.setup({
+			vim.lsp.enable("ruff")
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				on_init = function(client) client.server_capabilities.hoverProvider = false end,
 			})
 
 			-- Rust `brew:rust-analyzer`
-			lsp.rust_analyzer.setup({
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.config("rust_analyzer", {
 				capabilities = capabilities,
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							features = "all",
+						},
+					},
+				},
 			})
 
 			-- TOML `brew:taplo`
-			lsp.taplo.setup({
+			vim.lsp.enable("taplo")
+			vim.lsp.config("taplo", {
 				capabilities = capabilities,
 			})
 
 			-- TypeScript `npm:@vtsls/language-server`
-			lsp.vtsls.setup({
+			vim.lsp.enable("vtsls")
+			vim.lsp.config("vtsls", {
 				capabilities = capabilities,
-				single_file_support = false,
+				workspace_required = true,
 				root_dir = function(startpath)
 					local ts_root =
 						util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(
@@ -173,7 +199,8 @@ return {
 			})
 
 			-- WSGL `cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer`
-			lsp.wgsl_analyzer.setup({
+			vim.lsp.enable("wgsl_analyzer")
+			vim.lsp.config("wgsl_analyzer", {
 				capabilities = capabilities,
 			})
 

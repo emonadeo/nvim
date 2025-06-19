@@ -15,6 +15,7 @@ return {
 				"css",
 				"dockerfile",
 				"gleam",
+				"go",
 				"hcl",
 				"html",
 				"java",
