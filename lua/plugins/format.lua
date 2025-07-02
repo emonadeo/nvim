@@ -67,6 +67,7 @@ return {
 				css = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				go = { "gofmt" },
 				html = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
 				javascript = {
 					"dprint",
