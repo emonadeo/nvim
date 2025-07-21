@@ -46,30 +46,30 @@ return {
 			vim.lsp.enable("denols")
 			vim.lsp.config("denols", {
 				capabilities = capabilities,
-				workspace_required = true,
-				root_dir = function(startpath)
-					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
+				root_dir = function(bufnr, on_dir)
+					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd())
 					-- is there a deno.json?
 					if not deno_root then
 						-- no deno.json found -> disable denols
-						return nil
+						return
 					end
 					-- found a deno.json
 					local ts_root =
 						util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(
-							startpath
+							vim.fn.getcwd()
 						)
 					-- is there a tsconfig.json or package.json?
 					if not ts_root then
 						-- no tsconfig.json or package.json found -> enable denols
-						return deno_root
+						on_dir(deno_root)
+						return
 					end
 					if string.len(ts_root) > string.len(deno_root) then
 						-- tsconfig.json or package.json is deeper than deno.json -> disable denols
-						return nil
+						return
 					end
 					-- tsconfig.json or package.json is either the same or shallower than deno.json -> enable denols
-					return deno_root
+					on_dir(deno_root)
 				end,
 			})
 
@@ -184,17 +184,19 @@ return {
 			vim.lsp.enable("vtsls")
 			vim.lsp.config("vtsls", {
 				capabilities = capabilities,
-				workspace_required = true,
-				root_dir = function(startpath)
+				root_dir = function(bufnr, on_dir)
 					local ts_root =
 						util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(
-							startpath
+							vim.fn.getcwd()
 						)
-					if not ts_root then return nil end
-					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(startpath)
-					if not deno_root then return ts_root end
+					if not ts_root then return end
+					local deno_root = util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd())
+					if not deno_root then
+						on_dir(ts_root)
+						return
+					end
 					if string.len(deno_root) >= string.len(ts_root) then return nil end
-					return ts_root
+					on_dir(ts_root)
 				end,
 			})
 

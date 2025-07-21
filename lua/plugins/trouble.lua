@@ -2,6 +2,11 @@ return {
 	"folke/trouble.nvim",
 	dependencies = { "echasnovski/mini.icons", "folke/todo-comments.nvim" },
 	opts = {
+		focus = true,
+		warn_no_results = false,
+		open_no_results = true,
+		---@type trouble.Window.opts
+		win = { position = "right", relative = "win" },
 		-- `file_icon` has a hardcoded space in it.
 		-- https://github.com/folke/trouble.nvim/blob/v3.6.0/lua/trouble/format.lua#L115-L121
 		modes = {
@@ -21,6 +26,9 @@ return {
 				},
 			},
 			lsp_document_symbols = {
+				filter = {
+					["not"] = { ft = "rust", kind = "Variable" },
+				},
 				groups = {
 					{ "filename", format = "{file_icon}{filename} {count}" },
 				},
@@ -74,25 +82,23 @@ return {
 			"<leader>ed",
 			desc = "Diagnostics",
 			function()
-				require("trouble").toggle({
+				local trouble = require("trouble")
+				if not trouble.is_open({ mode = "diagnostics" }) then trouble.close() end
+				trouble.open({
+					new = false,
 					mode = "diagnostics",
 					filter = { buf = 0 },
-					focus = false,
-					win = {
-						position = "right",
-					},
 				})
 			end,
 		},
 		{
 			"<leader>eD",
 			function()
-				require("trouble").toggle({
+				local trouble = require("trouble")
+				if not trouble.is_open({ mode = "diagnostics" }) then trouble.close() end
+				trouble.open({
+					new = false,
 					mode = "diagnostics",
-					focus = false,
-					win = {
-						position = "right",
-					},
 				})
 			end,
 			desc = "All Diagnostics",
@@ -100,39 +106,24 @@ return {
 		{
 			"<leader>es",
 			function()
-				require("trouble").toggle({
+				local trouble = require("trouble")
+				if not trouble.is_open({ mode = "lsp_document_symbols" }) then trouble.close() end
+				trouble.open({
+					new = false,
 					mode = "lsp_document_symbols",
-					focus = false,
-					win = {
-						position = "right",
-					},
 				})
 			end,
 			desc = "LSP Symbols",
 		},
 		{
-			"<leader>eS",
-			function()
-				require("trouble").toggle({
-					mode = "lsp_workspace_symbols",
-					focus = false,
-					win = {
-						position = "right",
-					},
-				})
-			end,
-			desc = "Symbols",
-		},
-		{
 			"<leader>et",
 			function()
-				require("trouble").toggle({
+				local trouble = require("trouble")
+				if not trouble.is_open({ mode = "todo" }) then trouble.close() end
+				trouble.open({
+					new = false,
 					mode = "todo",
 					filter = { buf = 0 },
-					focus = false,
-					win = {
-						position = "right",
-					},
 				})
 			end,
 			desc = "Todos",
@@ -140,12 +131,11 @@ return {
 		{
 			"<leader>eT",
 			function()
-				require("trouble").toggle({
+				local trouble = require("trouble")
+				if not trouble.is_open({ mode = "todo" }) then trouble.close() end
+				trouble.open({
+					new = false,
 					mode = "todo",
-					focus = false,
-					win = {
-						position = "right",
-					},
 				})
 			end,
 			desc = "All Todos",
