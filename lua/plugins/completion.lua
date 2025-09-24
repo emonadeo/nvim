@@ -3,7 +3,7 @@ return {
 		"Saghen/blink.cmp",
 		version = "*",
 		dependencies = {
-			"echasnovski/mini.icons",
+			"nvim-mini/mini.icons",
 			"rafamadriz/friendly-snippets",
 		},
 		event = "InsertEnter",

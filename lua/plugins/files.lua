@@ -1,8 +1,8 @@
 return {
-	"echasnovski/mini.files",
+	"nvim-mini/mini.files",
 	lazy = false,
 	version = false,
-	dependencies = { "echasnovski/mini.icons", "folke/snacks.nvim" },
+	dependencies = { "nvim-mini/mini.icons", "folke/snacks.nvim" },
 	opts = {
 		mappings = {
 			go_in = "", -- unset default

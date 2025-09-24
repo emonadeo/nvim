@@ -1,6 +1,6 @@
 return {
 	{
-		"echasnovski/mini.diff",
+		"nvim-mini/mini.diff",
 		version = false,
 		opts = {
 			view = { style = "sign" },

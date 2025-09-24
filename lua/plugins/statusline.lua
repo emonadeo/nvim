@@ -2,6 +2,6 @@
 return {
 	"rebelot/heirline.nvim",
 	event = "UiEnter",
-	dependencies = { "echasnovski/mini.icons" },
+	dependencies = { "nvim-mini/mini.icons" },
 	opts = {},
 }

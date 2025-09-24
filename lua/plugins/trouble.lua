@@ -1,6 +1,6 @@
 return {
 	"folke/trouble.nvim",
-	dependencies = { "echasnovski/mini.icons", "folke/todo-comments.nvim" },
+	dependencies = { "nvim-mini/mini.icons", "folke/todo-comments.nvim" },
 	opts = {
 		focus = true,
 		warn_no_results = false,
