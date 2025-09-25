@@ -40,8 +40,36 @@ return {
 		},
 		-- Picker
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-		{ "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
-		{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.files({
+					hidden = true,
+					exclude = { "target", "node_modules" },
+				})
+			end,
+			desc = "Files",
+		},
+		{
+			"<leader>fF",
+			function() Snacks.picker.files({ hidden = true, ignored = true }) end,
+			desc = "Files",
+		},
+		{
+			"<leader>fg",
+			function()
+				Snacks.picker.grep({
+					hidden = true,
+					exclude = { "target", "node_modules" },
+				})
+			end,
+			desc = "Grep",
+		},
+		{
+			"<leader>fG",
+			function() Snacks.picker.grep({ hidden = true, ignored = true }) end,
+			desc = "Grep",
+		},
 		{ "<leader>fc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 		{ "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, desc = "Diagnostics" },
 		{ "<leader>fD", function() Snacks.picker.diagnostics() end, desc = "All Diagnostics" },
