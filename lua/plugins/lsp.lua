@@ -169,6 +169,7 @@ return {
 					["rust-analyzer"] = {
 						cargo = {
 							features = "all",
+							target = "wasm32-unknown-unknown",
 						},
 					},
 				},
@@ -236,6 +237,25 @@ return {
 					vim.keymap.set({ "n", "x" }, "<F3>", vim.lsp.buf.format, opts)
 				end,
 			})
+		end,
+	},
+
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		opts = {
+			preset = "simple",
+			options = {
+				show_source = {
+					enabled = true,
+					if_many = true,
+				},
+				use_icons_from_diagnostic = true,
+			},
+		},
+		config = function(_, opts)
+			require("tiny-inline-diagnostic").setup(opts)
+			vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
 		end,
 	},
 

@@ -7,10 +7,27 @@ return {
 		no_italic = true,
 		transparent_background = not vim.g.neovide,
 		default_integrations = false,
+		lsp_styles = {
+			virtual_text = {
+				errors = {},
+				hints = {},
+				warnings = {},
+				information = {},
+				ok = {},
+			},
+			underlines = {
+				errors = { "undercurl" },
+				hints = { "underdotted" },
+				warnings = { "undercurl" },
+				information = { "underdotted" },
+				ok = { "underdashed" },
+			},
+		},
 		integrations = {
 			blink_cmp = true,
 			dap = true,
 			dap_ui = true,
+			fidget = true,
 			gitsigns = true,
 			indent_blankline = {
 				enabled = true,
@@ -18,26 +35,6 @@ return {
 			mini = {
 				enabled = true,
 				indentscope_color = "",
-			},
-			native_lsp = {
-				enabled = true,
-				virtual_text = {
-					errors = {},
-					hints = {},
-					warnings = {},
-					information = {},
-					ok = {},
-				},
-				underlines = {
-					errors = { "undercurl" },
-					hints = { "underdotted" },
-					warnings = { "undercurl" },
-					information = { "underdotted" },
-					ok = { "underdashed" },
-				},
-				inlay_hints = {
-					background = true,
-				},
 			},
 			navic = {
 				enabled = true,
