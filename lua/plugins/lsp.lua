@@ -109,6 +109,12 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Java
+			vim.lsp.enable("jdtls")
+			vim.lsp.config("jdtls", {
+				capabilities = capabilities,
+			})
+
 			-- JSON `npm:vscode-langservers-extracted`
 			vim.lsp.enable("jsonls")
 			vim.lsp.config("jsonls", {
@@ -169,7 +175,6 @@ return {
 					["rust-analyzer"] = {
 						cargo = {
 							features = "all",
-							target = "wasm32-unknown-unknown",
 						},
 					},
 				},
