@@ -34,7 +34,6 @@ return {
 			},
 			mini = {
 				enabled = true,
-				indentscope_color = "",
 			},
 			navic = {
 				enabled = true,
