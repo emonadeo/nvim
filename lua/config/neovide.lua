@@ -13,7 +13,7 @@ vim.g.neovide_underline_stroke_scale = 2.0
 
 -- TODO: Translucent background
 -- Floating windows cannot hide what's behind them without disabling multigrid
--- See: https://github.com/neovide/neovide/discussions/2970
+-- See <https://github.com/neovide/neovide/discussions/2970>
 vim.g.neovide_normal_opacity = 1.0
 vim.g.neovide_opacity = 1.0
 
