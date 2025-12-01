@@ -212,6 +212,12 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Zig
+			vim.lsp.enable("zls")
+			vim.lsp.config("zls", {
+				capabilities = capabilities,
+			})
+
 			-- Rounded borders
 			vim.diagnostic.config({
 				float = { border = "rounded" },
