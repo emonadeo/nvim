@@ -32,6 +32,7 @@ return {
 				"ninja",
 				"nix",
 				"nu",
+				"odin",
 				"python",
 				"query",
 				"regex",
@@ -46,6 +47,7 @@ return {
 				"vimdoc",
 				"yaml",
 				"wgsl",
+				"zig",
 			},
 			textobjects = {
 				select = {

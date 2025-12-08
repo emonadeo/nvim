@@ -142,6 +142,12 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Odin
+			vim.lsp.enable("ols")
+			vim.lsp.config("ols", {
+				capabilities = capabilities,
+			})
+
 			-- Python `npm:pyright`
 			vim.lsp.enable("pyright")
 			vim.lsp.config("pyright", {
