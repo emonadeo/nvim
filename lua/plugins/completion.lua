@@ -17,10 +17,6 @@ return {
 			completion = {
 				documentation = {
 					auto_show = true,
-					window = {
-						border = "rounded",
-						winblend = vim.g.neovide and 50 or 0,
-					},
 				},
 				list = {
 					selection = {
@@ -34,8 +30,6 @@ return {
 							or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
 					end,
 					enabled = true,
-					border = "rounded",
-					winblend = vim.g.neovide and 50 or 0,
 					draw = {
 						components = {
 							kind_icon = {
@@ -64,10 +58,6 @@ return {
 			},
 			signature = {
 				enabled = true,
-				window = {
-					border = "rounded",
-					winblend = vim.g.neovide and 50 or 0,
-				},
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer", "lazydev" },

@@ -224,9 +224,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			-- Rounded borders
 			vim.diagnostic.config({
-				float = { border = "rounded" },
 				signs = true,
 			})
 		end,
@@ -235,19 +233,13 @@ return {
 				desc = "LSP actions",
 				callback = function(event)
 					local opts = { buffer = event.buf }
-					local float_opts = { border = "rounded" }
-					vim.keymap.set("n", "K", function() vim.lsp.buf.hover(float_opts) end, opts)
+					vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-					vim.keymap.set(
-						"n",
-						"gs",
-						function() vim.lsp.buf.signature_help(float_opts) end,
-						opts
-					)
+					vim.keymap.set("n", "gs", function() vim.lsp.buf.signature_help() end, opts)
 					vim.keymap.set("n", "g.", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 					vim.keymap.set("n", "cd", vim.lsp.buf.rename, opts)

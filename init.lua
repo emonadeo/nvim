@@ -1,5 +1,4 @@
-require("config.vim")
+require("config.general")
 require("config.lazy")
 require("config.diagnostic")
-
-if vim.g.neovide then require("config.neovide") end
+require("config.extra_filetypes")

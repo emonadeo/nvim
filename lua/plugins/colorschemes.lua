@@ -5,7 +5,7 @@ return {
 	priority = 1000,
 	opts = {
 		no_italic = true,
-		transparent_background = not vim.g.neovide,
+		transparent_background = true,
 		default_integrations = false,
 		lsp_styles = {
 			virtual_text = {
