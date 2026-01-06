@@ -1,7 +1,7 @@
-vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
 
 vim.o.number = true
 vim.o.relativenumber = true

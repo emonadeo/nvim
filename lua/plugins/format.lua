@@ -75,7 +75,14 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				go = { "gofmt" },
-				html = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
+				html = {
+					"dprint",
+					"biome-check",
+					"prettierd",
+					"prettier",
+					"deno_fmt",
+					stop_after_first = true,
+				},
 				javascript = {
 					"dprint",
 					"biome-check",
@@ -126,7 +133,14 @@ return {
 				},
 				nix = { "nixfmt" },
 				python = { "dprint", "ruff_format", stop_after_first = true },
-				svg = { "dprint", "prettierd", "prettier", "deno_fmt", stop_after_first = true },
+				svg = {
+					"dprint",
+					"biome-check",
+					"prettierd",
+					"prettier",
+					"deno_fmt",
+					stop_after_first = true,
+				},
 				toml = { "dprint", "rustfmt", stop_after_first = true },
 				typescript = {
 					"dprint",

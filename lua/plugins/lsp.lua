@@ -18,6 +18,22 @@ return {
 			vim.lsp.enable("biome")
 			vim.lsp.config("biome", {
 				capabilities = capabilities,
+				filetypes = {
+					"astro",
+					"css",
+					"graphql",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"json",
+					"jsonc",
+					"svelte",
+					"svg",
+					"typescript",
+					"typescript.tsx",
+					"typescriptreact",
+					"vue",
+				},
 			})
 
 			-- C `brew:llvm`
