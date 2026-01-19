@@ -1,7 +1,8 @@
 -- TODO: Keymap
 return {
 	{
-		"neovim/nvim-lspconfig",
+		"emonadeo/nvim-lspconfig",
+		branch = "fix/deno-biome",
 		dependencies = { "saghen/blink.cmp" },
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
