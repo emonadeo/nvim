@@ -57,12 +57,9 @@ return {
 			},
 			formatters_by_ft = {
 				astro = {
-					"dprint",
 					"biome-check",
 					"prettierd",
 					"prettier",
-					"deno_fmt",
-					stop_after_first = true,
 				},
 				css = {
 					"dprint",
