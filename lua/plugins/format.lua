@@ -58,8 +58,7 @@ return {
 			formatters_by_ft = {
 				astro = {
 					"dprint",
-					-- TODO: Enable once stable
-					-- "biome-check",
+					"biome-check",
 					"prettierd",
 					"prettier",
 					"deno_fmt",
