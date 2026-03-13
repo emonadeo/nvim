@@ -13,6 +13,7 @@ return {
 				"c",
 				"cpp",
 				"css",
+				"cuda",
 				"dockerfile",
 				"gleam",
 				"go",
@@ -164,5 +165,12 @@ return {
 			},
 		})
 	end,
-	init = function() vim.filetype.add({ extension = { wgsl = "wgsl" } }) end,
+	init = function()
+		vim.filetype.add({
+			extension = {
+				wgsl = "wgsl",
+				hip = "cuda",
+			},
+		})
+	end,
 }

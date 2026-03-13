@@ -40,6 +40,7 @@ return {
 			vim.lsp.enable("ccls")
 			vim.lsp.config("ccls", {
 				capabilities = capabilities,
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hip" },
 			})
 
 			-- ESLint `npm:vscode-langservers-extracted`
