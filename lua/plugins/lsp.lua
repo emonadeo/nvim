@@ -36,14 +36,10 @@ return {
 				},
 			})
 
-			-- C `brew:llvm`
-			vim.lsp.enable("clangd")
-			vim.lsp.config("clangd", {
+			-- C/C++/CUDA `brew:ccls`
+			vim.lsp.enable("ccls")
+			vim.lsp.config("ccls", {
 				capabilities = capabilities,
-				cmd = {
-					"clangd",
-					"--offset-encoding=utf-16",
-				},
 			})
 
 			-- ESLint `npm:vscode-langservers-extracted`
