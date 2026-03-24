@@ -122,12 +122,6 @@ return {
 				capabilities = capabilities,
 			})
 
-			-- Java
-			vim.lsp.enable("jdtls")
-			vim.lsp.config("jdtls", {
-				capabilities = capabilities,
-			})
-
 			-- JSON `npm:vscode-langservers-extracted`
 			vim.lsp.enable("jsonls")
 			vim.lsp.config("jsonls", {
@@ -281,6 +275,7 @@ return {
 		end,
 	},
 
+	-- Lua/Neovim
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
@@ -289,5 +284,11 @@ return {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
+	},
+
+	-- Java
+	{
+		"mfussenegger/nvim-jdtls",
+		config = function() vim.lsp.enable("jdtls") end,
 	},
 }
