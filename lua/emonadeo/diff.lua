@@ -1,3 +1,8 @@
+-- jj source for mini.diff. Requires jj to be installed
+-- Source: <https://github.com/nvim-mini/mini.nvim/discussions/1783>
+
+local M = {}
+
 local cache = {}
 
 local function get_buf_realpath(buf_id)
@@ -57,27 +62,19 @@ local function start_watching(buf_id, path)
 	set_ref_text()
 end
 
-return {
-	{
-		"nvim-mini/mini.diff",
-		version = false,
-		opts = {
-			view = { style = "sign" },
-			mappings = {
-				apply = "",
-			},
-			source = {
-				name = "jj",
-				attach = function(buf_id)
-					if cache[buf_id] ~= nil then return false end
+M.jj = function()
+	local attach = function(buf_id)
+		if cache[buf_id] ~= nil then return false end
 
-					local path = get_buf_realpath(buf_id)
-					if path == "" then return false end
+		local path = get_buf_realpath(buf_id)
+		if path == "" then return false end
 
-					return start_watching(buf_id, path)
-				end,
-				detach = function(buf_id) invalidate_cache(buf_id) end,
-			},
-		},
-	},
-}
+		return start_watching(buf_id, path)
+	end
+
+	local detach = function(buf_id) invalidate_cache(buf_id) end
+
+	return { name = "jj", attach = attach, detach = detach }
+end
+
+return M
