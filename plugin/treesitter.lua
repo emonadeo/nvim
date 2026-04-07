@@ -1,3 +1,85 @@
+local languages = {
+	"astro",
+	"bash",
+	"c",
+	"clojure",
+	"cpp",
+	"css",
+	"csv",
+	"cuda",
+	"cue",
+	"dart",
+	"dockerfile",
+	"editorconfig",
+	"elixir",
+	"erlang",
+	"gitignore",
+	"gleam",
+	"glsl",
+	"go",
+	"graphql",
+	"groovy",
+	"hcl",
+	"html",
+	"ini",
+	"java",
+	"javascript",
+	"jsdoc",
+	"json",
+	"json5",
+	"just",
+	"kdl",
+	"kotlin",
+	"latex",
+	"lua",
+	"luadoc",
+	"markdown",
+	"markdown_inline",
+	"meson",
+	"nginx",
+	"nickel",
+	"ninja",
+	"nix",
+	"nu",
+	"ocaml",
+	"odin",
+	"php",
+	"python",
+	"query",
+	"regex",
+	"rust",
+	"scss",
+	"svelte",
+	"swift",
+	"toml",
+	"tsx",
+	"typescript",
+	"typespec",
+	"typst",
+	"vala",
+	"vim",
+	"vimdoc",
+	"vue",
+	"wgsl",
+	"xml",
+	"yaml",
+	"zig",
+}
+
+-- Install
+local isnt_installed = function(lang)
+	return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0
+end
+local to_install = vim.tbl_filter(isnt_installed, languages)
+if #to_install > 0 then require("nvim-treesitter").install(to_install) end
+
+-- Enable
+local filetypes = vim.iter(languages):map(vim.treesitter.language.get_filetypes):flatten():totable()
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = filetypes,
+	callback = function(ev) vim.treesitter.start(ev.buf) end,
+})
+
 -- TODO: Rework keymap
 require("nvim-treesitter-textobjects").setup({
 	select = {

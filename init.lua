@@ -19,6 +19,9 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.operators",
 	"https://github.com/nvim-mini/mini.pairs",
 	"https://github.com/nvim-mini/mini.surround",
+	-- TODO: Find alternative to nvim-treesitter
+	-- See <https://github.com/nvim-treesitter/nvim-treesitter/discussions/8627>
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/rafamadriz/friendly-snippets",
