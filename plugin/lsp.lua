@@ -18,6 +18,7 @@ vim.lsp.enable({
 	"nil_ls",
 	"nushell",
 	"ols",
+	"oxlint",
 	"pyright",
 	"ruff",
 	"rust_analyzer",
@@ -65,6 +66,10 @@ vim.lsp.config("rust_analyzer", {
 			},
 		},
 	},
+})
+
+vim.lsp.config("oxlint", {
+	root_markers = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" },
 })
 
 vim.diagnostic.config({ signs = true })

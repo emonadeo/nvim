@@ -26,6 +26,19 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 | Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
 | Format                | <kbd>F3</kbd>                  |                                                              |
 
+### Completion
+
+| Command               | Shortcut                       | Plugin                                                       |
+| --------------------- | ------------------------------ | ------------------------------------------------------------ |
+| Trigger completion / Toggle documentation | <kbd>Ctrl</kbd>+<kbd>Space</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Hide          | <kbd>Ctrl</kbd>+<kbd>h</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Previous          | <kbd>Ctrl</kbd>+<kbd>j</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Next          | <kbd>Ctrl</kbd>+<kbd>k</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Accept          | <kbd>Ctrl</kbd>+<kbd>l</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Scroll documation up          | <kbd>Ctrl</kbd>+<kbd>u</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Scroll documation down          | <kbd>Ctrl</kbd>+<kbd>d</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Toggle signature          | <kbd>Ctrl</kbd>+<kbd>s</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+
 ### Operators
 
 | Command               | Shortcut                       | Plugin                                                       |
