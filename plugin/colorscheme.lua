@@ -23,14 +23,7 @@ require("catppuccin").setup({
 		dap = true,
 		dap_ui = true,
 		fidget = true,
-		gitsigns = true,
-		indent_blankline = {
-			enabled = true,
-		},
 		mini = {
-			enabled = true,
-		},
-		navic = {
 			enabled = true,
 		},
 		notify = true,
@@ -39,14 +32,25 @@ require("catppuccin").setup({
 		lsp_trouble = true,
 		render_markdown = true,
 		snacks = {
-			enabled = false,
-			indent_scope_color = "",
+			enabled = true,
+		},
+		lualine = {
+			all = function(c)
+				return {
+					normal = { b = { fg = c.text } },
+					insert = { b = { fg = c.text } },
+					terminal = { b = { fg = c.text } },
+					command = { b = { fg = c.text } },
+					visual = { b = { fg = c.text } },
+					replace = { b = { fg = c.text } },
+				}
+			end,
 		},
 		treesitter = true,
 		treesitter_context = true,
 		which_key = true,
 	},
-	custom_highlights = function(colors)
+	custom_highlights = function()
 		return {
 			-- Blink
 			BlinkCmpDocBorder = { link = "FloatBorder" },
@@ -58,9 +62,6 @@ require("catppuccin").setup({
 			ColorColumn = { link = "CursorLine" },
 			-- Folds
 			Folded = { link = "CursorLine" },
-			-- Disable background of statusline; we use heirline.nvim (see statusline.lua)
-			StatusLine = { bg = colors.none },
-			StatusLineNC = { bg = colors.none },
 		}
 	end,
 })

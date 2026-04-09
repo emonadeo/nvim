@@ -1,6 +1,4 @@
-local trouble = require("trouble")
-
-trouble.setup({
+require("trouble").setup({
 	focus = true,
 	warn_no_results = false,
 	open_no_results = true,
@@ -75,49 +73,3 @@ trouble.setup({
 		},
 	},
 })
-
-vim.keymap.set("n", "<leader>ed", function()
-	if not trouble.is_open({ mode = "diagnostics" }) then trouble.close() end
-	trouble.open({
-		new = false,
-		mode = "diagnostics",
-		filter = { buf = 0 },
-	})
-end, {
-	desc = "Diagnostics",
-})
-
-vim.keymap.set("n", "<leader>eD", function()
-	if not trouble.is_open({ mode = "diagnostics" }) then trouble.close() end
-	trouble.open({
-		new = false,
-		mode = "diagnostics",
-	})
-end, { desc = "All Diagnostics" })
-
-vim.keymap.set("n", "<leader>es", function()
-	if not trouble.is_open({ mode = "lsp_document_symbols" }) then trouble.close() end
-	trouble.open({
-		new = false,
-		mode = "lsp_document_symbols",
-	})
-end, { desc = "LSP Symbols" })
-
-vim.keymap.set("n", "<leader>et", function()
-	local trouble = require("trouble")
-	if not trouble.is_open({ mode = "todo" }) then trouble.close() end
-	trouble.open({
-		new = false,
-		mode = "todo",
-		filter = { buf = 0 },
-	})
-end, { desc = "Todos" })
-
-vim.keymap.set("n", "<leader>eT", function()
-	local trouble = require("trouble")
-	if not trouble.is_open({ mode = "todo" }) then trouble.close() end
-	trouble.open({
-		new = false,
-		mode = "todo",
-	})
-end, { desc = "All Todos" })

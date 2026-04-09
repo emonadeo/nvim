@@ -6,13 +6,11 @@ vim.pack.add({
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/folke/trouble.nvim",
-	"https://github.com/folke/twilight.nvim",
 	"https://github.com/folke/which-key.nvim",
-	"https://github.com/folke/zen-mode.nvim",
-	"https://github.com/j-hui/fidget.nvim",
 	"https://github.com/mfussenegger/nvim-jdtls",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/nvim-mini/mini.ai",
 	"https://github.com/nvim-mini/mini.diff",
 	"https://github.com/nvim-mini/mini.icons",
@@ -22,6 +20,7 @@ vim.pack.add({
 	-- TODO: Find alternative to nvim-treesitter
 	-- See <https://github.com/nvim-treesitter/nvim-treesitter/discussions/8627>
 	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/rafamadriz/friendly-snippets",
@@ -39,18 +38,9 @@ require("mini.ai").setup()
 require("mini.operators").setup()
 require("mini.surround").setup({ silent = true })
 require("nvim-ts-autotag").setup()
-require("fidget").setup({
-	notification = {
-		window = {
-			winblend = 0,
-		},
-	},
+require("which-key").setup({
+	preset = "classic",
 })
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
-vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -75,7 +65,7 @@ vim.o.wrap = false
 vim.o.clipboard = "unnamedplus"
 
 vim.o.showmode = false -- Dont show mode since we have a statusline
-vim.o.laststatus = 2
+vim.o.laststatus = 0
 vim.o.cmdheight = 0
 
 -- Fold

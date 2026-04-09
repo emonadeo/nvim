@@ -8,10 +8,3 @@ notify.setup({
 })
 
 vim.notify = notify
-
-vim.keymap.set(
-	"n",
-	"<leader>un",
-	function() notify.dismiss({ silent = true, pending = true }) end,
-	{ desc = "Dismiss all Notifications" }
-)

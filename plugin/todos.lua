@@ -1,6 +1,4 @@
-local todos = require("todo-comments")
-
-todos.setup({
+require("todo-comments").setup({
 	keywords = {
 		FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
 		TODO = { icon = " ", color = "info" },
@@ -11,6 +9,3 @@ todos.setup({
 		TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 	},
 })
-
-vim.keymap.set("n", "]t", todos.jump_next, { desc = "Next todo" })
-vim.keymap.set("n", "[t", todos.jump_prev, { desc = "Previous todo" })
