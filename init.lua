@@ -13,6 +13,7 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/nvim-mini/mini.ai",
 	"https://github.com/nvim-mini/mini.diff",
+	"https://github.com/nvim-mini/mini.files",
 	"https://github.com/nvim-mini/mini.icons",
 	"https://github.com/nvim-mini/mini.operators",
 	"https://github.com/nvim-mini/mini.pairs",
@@ -26,7 +27,6 @@ vim.pack.add({
 	"https://github.com/rafamadriz/friendly-snippets",
 	"https://github.com/rcarriga/nvim-notify",
 	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 	-- Stick to tagged releases which provide prebuilt binaries
@@ -40,6 +40,7 @@ require("mini.surround").setup({ silent = true })
 require("nvim-ts-autotag").setup()
 require("which-key").setup({
 	preset = "classic",
+	icons = { mappings = false },
 })
 
 vim.o.number = true
