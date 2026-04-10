@@ -5,7 +5,7 @@ require("mini.diff").setup({
 		apply = "",
 	},
 	source = {
-		require("mini.diff").gen_source.git(),
 		require("emonadeo.diff").jj(),
+		require("mini.diff").gen_source.git(),
 	},
 })

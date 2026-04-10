@@ -11,21 +11,18 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 ### Language server
 
-| Command               | Shortcut                       | Plugin                                                                                  |
-| --------------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
-| Hover symbol          | <kbd>K</kbd>                   |                                                                                         |
-| Go to definition      | <kbd>gd</kbd>                  |                                                                                         |
-| Go to declaration     | <kbd>gD</kbd>                  |                                                                                         |
-| Go to implementation  | <kbd>gi</kbd>                  |                                                                                         |
-| Go to type definition | <kbd>go</kbd>                  |                                                                                         |
-| Go to references      | <kbd>gr</kbd>                  |                                                                                         |
-| Signature help        | <kbd>gs</kbd>                  |                                                                                         |
-| Show code actions     | <kbd>g.</kbd>                  |                                                                                         |
-| Jump to context       | <kbd>gk</kbd>                  | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
-| Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> |                                                                                         |
-| Next Reference        | <kbd>]</kbd><kbd>]</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
-| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
-| Format                | <kbd>F3</kbd>                  |                                                                                         |
+| Command               | Shortcut                     | Plugin                                                                                  |
+| --------------------- | ---------------------------- | --------------------------------------------------------------------------------------- |
+| Hover symbol          | <kbd>K</kbd>                 |                                                                                         |
+| Show code actions     | <kbd>gra</kbd>               |                                                                                         |
+| Go to implementation  | <kbd>gri</kbd>               |                                                                                         |
+| Rename                | <kbd>grn</kbd>               |                                                                                         |
+| Go to references      | <kbd>grr</kbd>               |                                                                                         |
+| Go to type definition | <kbd>grt</kbd>               |                                                                                         |
+| Signature help        | <kbd>Ctrl</kbd>+<kbd>S</kbd> |                                                                                         |
+| Next Reference        | <kbd>]</kbd><kbd>]</kbd>     | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>     | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Jump to context       | <kbd>[</kbd><kbd>c</kbd>     | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
 
 ### Completion
 
@@ -44,11 +41,11 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 | Command                           | Shortcut      | Plugin                                                         |
 | --------------------------------- | ------------- | -------------------------------------------------------------- |
-| Evaluate text region              | <kbd>g=</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Exchange text regions             | <kbd>gx</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Replace text region with register | <kbd>cr</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Exchange text regions             | <kbd>cx</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 | Multiply text regions             | <kbd>gm</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Replace text region with register | <kbd>gr</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 | Sort text region                  | <kbd>gs</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Evaluate text region              | <kbd>g=</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 
 <!-- TODO: Resolve conflict between `gs` mappings -->
 

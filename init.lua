@@ -8,6 +8,7 @@ vim.pack.add({
 	"https://github.com/folke/trouble.nvim",
 	"https://github.com/folke/which-key.nvim",
 	"https://github.com/mfussenegger/nvim-jdtls",
+	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
@@ -35,7 +36,10 @@ vim.pack.add({
 
 require("lazydev").setup()
 require("mini.ai").setup()
-require("mini.operators").setup()
+require("mini.operators").setup({
+	replace = { prefix = "cr" },
+	exchange = { prefix = "cx" },
+})
 require("mini.surround").setup({ silent = true })
 require("nvim-ts-autotag").setup()
 require("which-key").setup({

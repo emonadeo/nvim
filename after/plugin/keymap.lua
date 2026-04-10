@@ -24,38 +24,6 @@ vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
 vim.keymap.set("n", "<leader>/", function() which_key.show({ global = false }) end, { desc = "Local Keymap" })
 vim.keymap.set("n", "<leader>?", function() which_key.show({ global = true }) end, { desc = "Global Keymap" })
 
--- ## LSP code actions `g` (except `ge`)
---------------------------------------------------------------------------------
-
--- TODO: Rework
-
-vim.keymap.set("n", "gh", vim.diagnostic.open_float)
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	desc = "LSP actions",
-	callback = function(event)
-		local opts = { buffer = event.buf }
-		vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "gs", function() vim.lsp.buf.signature_help() end, opts)
-		vim.keymap.set("n", "g.", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "cd", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "x" }, "<F3>", vim.lsp.buf.format, opts)
-	end,
-})
-
-vim.keymap.set(
-	"n",
-	"gk",
-	function() require("treesitter-context").go_to_context(vim.v.count1) end,
-	{ desc = "Jump to context" }
-)
-
 -- ## Explore `e`
 --------------------------------------------------------------------------------
 
@@ -212,6 +180,12 @@ vim.keymap.set({ "n", "t" }, "]]", function() snacks.words.jump(vim.v.count1) en
 vim.keymap.set({ "n", "t" }, "[[", function() snacks.words.jump(-vim.v.count1) end, { desc = "Previous Reference" })
 vim.keymap.set("n", "]t", todos.jump_next, { desc = "Next todo" })
 vim.keymap.set("n", "[t", todos.jump_prev, { desc = "Previous todo" })
+vim.keymap.set(
+	"n",
+	"[c",
+	function() require("treesitter-context").go_to_context(vim.v.count1) end,
+	{ desc = "Jump to context" }
+)
 
 -- ## Other
 --------------------------------------------------------------------------------

@@ -20,7 +20,6 @@ vim.lsp.enable({
 	"pyright",
 	"ruff",
 	"rumdl", -- markdown
-	"rust_analyzer",
 	"tombi", -- toml
 	"tsgo",
 	"vtsls",
@@ -55,16 +54,6 @@ vim.lsp.config("pyright", {
 
 vim.lsp.config("ruff", {
 	on_init = function(client) client.server_capabilities.hoverProvider = false end,
-})
-
-vim.lsp.config("rust_analyzer", {
-	settings = {
-		["rust-analyzer"] = {
-			cargo = {
-				features = "all",
-			},
-		},
-	},
 })
 
 require("lazydev").setup({
