@@ -7,10 +7,6 @@ require("blink.cmp").setup({
 		documentation = {
 			auto_show = true,
 		},
-		ghost_text = {
-			enabled = true,
-			show_with_menu = true,
-		},
 		list = {
 			selection = {
 				preselect = true,
@@ -69,7 +65,15 @@ require("blink.cmp").setup({
 	},
 	cmdline = {
 		keymap = { preset = "inherit" },
-		completion = { menu = { auto_show = true } },
+		completion = {
+			menu = { auto_show = true },
+			list = {
+				selection = {
+					preselect = true,
+					auto_insert = false,
+				},
+			},
+		},
 	},
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",

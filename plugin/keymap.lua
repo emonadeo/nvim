@@ -2,6 +2,7 @@ local files = require("mini.files")
 local notify = require("notify")
 local persistence = require("persistence")
 local snacks = require("snacks")
+local spider = require("spider")
 local todos = require("todo-comments")
 local trouble = require("trouble")
 local which_key = require("which-key")
@@ -9,7 +10,13 @@ local which_key = require("which-key")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- ## Quick actions
+-- Move by subwords and skip insignificant punctuation
+vim.keymap.set({ "n", "o", "x" }, "w", function() spider.motion("w") end)
+vim.keymap.set({ "n", "o", "x" }, "e", function() spider.motion("e") end)
+vim.keymap.set({ "n", "o", "x" }, "b", function() spider.motion("b") end)
+vim.keymap.set({ "n", "o", "x" }, "ge", function() spider.motion("ge") end)
+
+-- ## Common actions
 --------------------------------------------------------------------------------
 
 vim.keymap.set("n", "<leader>q", vim.cmd.quit, { desc = "Quit" })
@@ -17,10 +24,12 @@ vim.keymap.set("n", "<leader>w", vim.cmd.write, { desc = "Write" })
 vim.keymap.set("n", "<leader>/", function() which_key.show({ global = false }) end, { desc = "Local Keymap" })
 vim.keymap.set("n", "<leader>?", function() which_key.show({ global = true }) end, { desc = "Global Keymap" })
 
--- ## LSP code actions `g`
+-- ## LSP code actions `g` (except `ge`)
 --------------------------------------------------------------------------------
 
 -- TODO: Rework
+
+vim.keymap.set("n", "gh", vim.diagnostic.open_float)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",

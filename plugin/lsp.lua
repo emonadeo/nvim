@@ -66,8 +66,6 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
-vim.diagnostic.config({ signs = true })
-
 require("lazydev").setup({
 	library = {
 		{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
