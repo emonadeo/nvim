@@ -19,6 +19,7 @@ vim.lsp.enable({
 	"oxlint",
 	"pyright",
 	"ruff",
+	"rumdl", -- markdown
 	"rust_analyzer",
 	"tombi", -- toml
 	"tsgo",

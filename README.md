@@ -11,44 +11,44 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 ### Language server
 
-| Command               | Shortcut                       | Plugin                                                       |
-| --------------------- | ------------------------------ | ------------------------------------------------------------ |
-| Hover symbol          | <kbd>K</kbd>                   ||
-| Go to definition      | <kbd>gd</kbd>                  ||
-| Go to declaration     | <kbd>gD</kbd>                  ||
-| Go to implementation  | <kbd>gi</kbd>                  ||
-| Go to type definition | <kbd>go</kbd>                  ||
-| Go to references      | <kbd>gr</kbd>                  ||
-| Signature help        | <kbd>gs</kbd>                  ||
-| Show code actions     | <kbd>g.</kbd>                  ||
+| Command               | Shortcut                       | Plugin                                                                                  |
+| --------------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
+| Hover symbol          | <kbd>K</kbd>                   |                                                                                         |
+| Go to definition      | <kbd>gd</kbd>                  |                                                                                         |
+| Go to declaration     | <kbd>gD</kbd>                  |                                                                                         |
+| Go to implementation  | <kbd>gi</kbd>                  |                                                                                         |
+| Go to type definition | <kbd>go</kbd>                  |                                                                                         |
+| Go to references      | <kbd>gr</kbd>                  |                                                                                         |
+| Signature help        | <kbd>gs</kbd>                  |                                                                                         |
+| Show code actions     | <kbd>g.</kbd>                  |                                                                                         |
 | Jump to context       | <kbd>gk</kbd>                  | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
-| Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> ||
-| Next Reference        | <kbd>]</kbd><kbd>]</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
-| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
-| Format                | <kbd>F3</kbd>                  |                                                              |
+| Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> |                                                                                         |
+| Next Reference        | <kbd>]</kbd><kbd>]</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Format                | <kbd>F3</kbd>                  |                                                                                         |
 
 ### Completion
 
-| Command               | Shortcut                       | Plugin                                                       |
-| --------------------- | ------------------------------ | ------------------------------------------------------------ |
-| Trigger completion / Toggle documentation | <kbd>Ctrl</kbd>+<kbd>Space</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Hide          | <kbd>Ctrl</kbd>+<kbd>h</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Previous          | <kbd>Ctrl</kbd>+<kbd>j</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Next          | <kbd>Ctrl</kbd>+<kbd>k</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Accept          | <kbd>Ctrl</kbd>+<kbd>l</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Scroll documation up          | <kbd>Ctrl</kbd>+<kbd>u</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Scroll documation down          | <kbd>Ctrl</kbd>+<kbd>d</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
-| Toggle signature          | <kbd>Ctrl</kbd>+<kbd>s</kbd>                   | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Command                                   | Shortcut                         | Plugin                                             |
+| ----------------------------------------- | -------------------------------- | -------------------------------------------------- |
+| Trigger completion / Toggle documentation | <kbd>Ctrl</kbd>+<kbd>Space</kbd> | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Hide                                      | <kbd>Ctrl</kbd>+<kbd>h</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Previous                                  | <kbd>Ctrl</kbd>+<kbd>j</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Next                                      | <kbd>Ctrl</kbd>+<kbd>k</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Accept                                    | <kbd>Ctrl</kbd>+<kbd>l</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Scroll documation up                      | <kbd>Ctrl</kbd>+<kbd>u</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Scroll documation down                    | <kbd>Ctrl</kbd>+<kbd>d</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
+| Toggle signature                          | <kbd>Ctrl</kbd>+<kbd>s</kbd>     | [`blink.cmp`](https://github.com/Saghen/blink.cmp) |
 
 ### Operators
 
-| Command               | Shortcut                       | Plugin                                                       |
-| --------------------- | ------------------------------ | ------------------------------------------------------------ |
-| Evaluate text region          | <kbd>g=</kbd>                   | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Exchange text regions          | <kbd>gx</kbd>                   | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Multiply text regions          | <kbd>gm</kbd>                   | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Replace text region with register          | <kbd>gr</kbd>                   | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Sort text region          | <kbd>gs</kbd>                   | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Command                           | Shortcut      | Plugin                                                         |
+| --------------------------------- | ------------- | -------------------------------------------------------------- |
+| Evaluate text region              | <kbd>g=</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Exchange text regions             | <kbd>gx</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Multiply text regions             | <kbd>gm</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Replace text region with register | <kbd>gr</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Sort text region                  | <kbd>gs</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 
 <!-- TODO: Resolve conflict between `gs` mappings -->
 
@@ -64,25 +64,25 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 ### Git
 
-| Command             | Shortcut      | Plugin                                                  |
-| ------------------- | ------------- | ------------------------------------------------------- |
+| Command             | Shortcut      | Plugin                                                |
+| ------------------- | ------------- | ----------------------------------------------------- |
 | Go to next hunk     | <kbd>]h</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 | Go to last hunk     | <kbd>]H</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 | Go to previous hunk | <kbd>[h</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 | Go to first hunk    | <kbd>[H</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 | Reset hunk          | <kbd>gH</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 
-| Text Objects | Shortcut      | Plugin                                                  |
-| ------------ | ------------- | ------------------------------------------------------- |
+| Text Objects | Shortcut      | Plugin                                                |
+| ------------ | ------------- | ----------------------------------------------------- |
 | Hunk         | <kbd>gh</kbd> | [`mini.diff`](https://github.com/nvim-mini/mini.diff) |
 
 ### Explore
 
 | Command                 | Shortcut                                 | Plugin                                                        |
 | ----------------------- | ---------------------------------------- | ------------------------------------------------------------- |
-| Open directory          | <kbd>SPACE</kbd><kbd>e</kbd><kbd>e</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)     |
-| Open file directory     | <kbd>SPACE</kbd><kbd>e</kbd><kbd>f</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)     |
-| Open config directory   | <kbd>SPACE</kbd><kbd>e</kbd><kbd>c</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)     |
+| Open directory          | <kbd>SPACE</kbd><kbd>e</kbd><kbd>e</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)       |
+| Open file directory     | <kbd>SPACE</kbd><kbd>e</kbd><kbd>f</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)       |
+| Open config directory   | <kbd>SPACE</kbd><kbd>e</kbd><kbd>c</kbd> | [`mini.files`](https://github.com/nvim-mini/mini.files)       |
 | Open diagnostics        | <kbd>SPACE</kbd><kbd>e</kbd><kbd>d</kbd> | [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim) |
 | Open buffer diagnostics | <kbd>SPACE</kbd><kbd>e</kbd><kbd>D</kbd> | [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim) |
 | Open symbols            | <kbd>SPACE</kbd><kbd>e</kbd><kbd>s</kbd> | [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim) |

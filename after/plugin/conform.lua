@@ -48,6 +48,10 @@ require("conform").setup({
 				"prettier.config.cjs",
 			}),
 		},
+		rumdl = {
+			-- Format tables by default
+			append_args = { "--enable", "MD060" },
+		},
 		rustfmt = {
 			require_cwd = true,
 			cwd = util.root_file({
@@ -141,6 +145,7 @@ require("conform").setup({
 			"prettierd",
 			"prettier",
 			"deno_fmt",
+			"rumdl",
 			stop_after_first = true,
 		},
 		nix = { "nixfmt" },
