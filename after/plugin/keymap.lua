@@ -49,6 +49,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+vim.keymap.set(
+	"n",
+	"gk",
+	function() require("treesitter-context").go_to_context(vim.v.count1) end,
+	{ desc = "Jump to context" }
+)
+
 -- ## Explore `e`
 --------------------------------------------------------------------------------
 

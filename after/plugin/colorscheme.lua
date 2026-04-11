@@ -62,6 +62,8 @@ require("catppuccin").setup({
 			ColorColumn = { link = "CursorLine" },
 			-- Folds
 			Folded = { link = "CursorLine" },
+			-- Remove orange tint of `treesitter-context`
+			TreesitterContextLineNumber = { link = "LineNr" },
 		}
 	end,
 })

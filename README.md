@@ -13,15 +13,16 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 | Command               | Shortcut                       | Plugin                                                       |
 | --------------------- | ------------------------------ | ------------------------------------------------------------ |
-| Hover symbol          | <kbd>K</kbd>                   | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Go to definition      | <kbd>gd</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Go to declaration     | <kbd>gD</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Go to implementation  | <kbd>gi</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Go to type definition | <kbd>go</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Go to references      | <kbd>gr</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Signature help        | <kbd>gs</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Show code actions     | <kbd>g.</kbd>                  | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
-| Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> | [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) |
+| Hover symbol          | <kbd>K</kbd>                   ||
+| Go to definition      | <kbd>gd</kbd>                  ||
+| Go to declaration     | <kbd>gD</kbd>                  ||
+| Go to implementation  | <kbd>gi</kbd>                  ||
+| Go to type definition | <kbd>go</kbd>                  ||
+| Go to references      | <kbd>gr</kbd>                  ||
+| Signature help        | <kbd>gs</kbd>                  ||
+| Show code actions     | <kbd>g.</kbd>                  ||
+| Jump to context       | <kbd>gk</kbd>                  | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
+| Rename                | <kbd>cd</kbd> or <kbd>F2</kbd> ||
 | Next Reference        | <kbd>]</kbd><kbd>]</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
 | Previous Reference    | <kbd>[</kbd><kbd>[</kbd>       | [`snacks.words`](https://github.com/folke/snacks.nvim)       |
 | Format                | <kbd>F3</kbd>                  |                                                              |
