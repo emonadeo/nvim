@@ -37,8 +37,8 @@ vim.pack.add({
 require("lazydev").setup()
 require("mini.ai").setup()
 require("mini.operators").setup({
-	replace = { prefix = "cr" },
-	exchange = { prefix = "cx" },
+	replace = { prefix = "gR" },
+	exchange = { prefix = "gX" },
 })
 require("mini.surround").setup({ silent = true })
 require("nvim-ts-autotag").setup()

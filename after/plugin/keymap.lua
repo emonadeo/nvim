@@ -61,7 +61,24 @@ vim.keymap.set(
 	{ desc = "All Diagnostics" }
 )
 
+vim.keymap.set("n", "gh", vim.diagnostic.open_float)
+
 -- ### LSP
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP actions",
+	callback = function(event)
+		local opts = { buffer = event.buf }
+		vim.keymap.set("n", "g.", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "cd", vim.lsp.buf.rename, opts)
+	end,
+})
 
 vim.keymap.set(
 	"n",

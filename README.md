@@ -14,15 +14,19 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 | Command               | Shortcut                     | Plugin                                                                                  |
 | --------------------- | ---------------------------- | --------------------------------------------------------------------------------------- |
 | Hover symbol          | <kbd>K</kbd>                 |                                                                                         |
-| Show code actions     | <kbd>gra</kbd>               |                                                                                         |
-| Go to implementation  | <kbd>gri</kbd>               |                                                                                         |
-| Rename                | <kbd>grn</kbd>               |                                                                                         |
-| Go to references      | <kbd>grr</kbd>               |                                                                                         |
-| Go to type definition | <kbd>grt</kbd>               |                                                                                         |
+| Show code actions     | <kbd>g.</kbd>                |                                                                                         |
+| Go to definition      | <kbd>gd</kbd>                |                                                                                         |
+| Go to declaration     | <kbd>gD</kbd>                |                                                                                         |
+| Go to implementation  | <kbd>gI</kbd>                |                                                                                         |
+| Go to references      | <kbd>gr</kbd>                |                                                                                         |
+| Go to type definition | <kbd>gy</kbd>                |                                                                                         |
+| Signature help        | <kbd>gk</kbd>                |                                                                                         |
+| Format lines          | <kbd>gq</kbd>                |                                                                                         |
+| Rename                | <kbd>cd</kbd>                |                                                                                         |
 | Signature help        | <kbd>Ctrl</kbd>+<kbd>S</kbd> |                                                                                         |
-| Next Reference        | <kbd>]</kbd><kbd>]</kbd>     | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
-| Previous Reference    | <kbd>[</kbd><kbd>[</kbd>     | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
-| Jump to context       | <kbd>[</kbd><kbd>c</kbd>     | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
+| Next Reference        | <kbd>]]</kbd>                | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Previous Reference    | <kbd>[[</kbd>                | [`snacks.words`](https://github.com/folke/snacks.nvim)                                  |
+| Jump to context       | <kbd>[c</kbd>                | [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context) |
 
 ### Completion
 
@@ -41,8 +45,8 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 
 | Command                           | Shortcut      | Plugin                                                         |
 | --------------------------------- | ------------- | -------------------------------------------------------------- |
-| Replace text region with register | <kbd>cr</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
-| Exchange text regions             | <kbd>cx</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Replace text region with register | <kbd>gR</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
+| Exchange text regions             | <kbd>gX</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 | Multiply text regions             | <kbd>gm</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 | Sort text region                  | <kbd>gs</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
 | Evaluate text region              | <kbd>g=</kbd> | [`mini.operator`](https://github.com/nvim-mini/mini.operators) |
@@ -55,7 +59,7 @@ The keymap is losely based on [Zed's Vim Mode](https://zed.dev/docs/vim) and
 | ------------------------- | ---------------------------------------- | ------------------------------------------------------------- |
 | Go to next diagnostic     | <kbd>]d</kbd>                            |                                                               |
 | Go to previous diagnostic | <kbd>[d</kbd>                            |                                                               |
-| Hover diagnostic          | <kbd>gh</kbd>                            |                                                               |
+| Hover diagnostic          | <kbd>Ctrl</kbd>+<kbd>W</kbd><kbd>d</kbd> |                                                               |
 | Open diagnostics          | <kbd>SPACE</kbd><kbd>e</kbd><kbd>d</kbd> | [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim) |
 | Open buffer diagnostics   | <kbd>SPACE</kbd><kbd>e</kbd><kbd>D</kbd> | [`folke/trouble.nvim`](https://github.com/folke/trouble.nvim) |
 
