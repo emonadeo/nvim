@@ -9,6 +9,10 @@
       "rev": "0303a7208dba448c459767486a38a6ec05c4216b",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "codesettings.nvim": {
+      "rev": "6d8933f7bc437dff42aecb56c8409af7647ff124",
+      "src": "https://github.com/mrjones2014/codesettings.nvim"
+    },
     "conform.nvim": {
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"

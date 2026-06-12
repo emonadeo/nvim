@@ -9,6 +9,7 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim",
 	"https://github.com/mfussenegger/nvim-jdtls",
 	"https://github.com/mrcjkb/rustaceanvim",
+	"https://github.com/mrjones2014/codesettings.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
