@@ -47,6 +47,9 @@ require("which-key").setup({
 	icons = { mappings = false },
 })
 
+-- Disable builtin ftplugins overriding keymap
+vim.g.no_plugin_maps = true
+
 vim.o.number = true
 vim.o.relativenumber = true
 

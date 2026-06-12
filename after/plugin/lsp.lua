@@ -21,8 +21,7 @@ vim.lsp.enable({
 	"ruff",
 	"rumdl", -- markdown
 	"tombi", -- toml
-	"tsgo",
-	"vtsls",
+	"tsc", -- typescript
 	"wgsl_analyzer",
 	"zls",
 })
