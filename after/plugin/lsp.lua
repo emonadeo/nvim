@@ -7,6 +7,7 @@ vim.lsp.enable({
 	"dockerls",
 	"emmet_language_server",
 	"eslint",
+	"gdscript",
 	"gleam",
 	"gopls",
 	"html",

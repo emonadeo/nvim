@@ -1,4 +1,5 @@
 vim.pack.add({
+	"https://github.com/Mathijs-Bakker/godotdev.nvim",
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/chrisgrieser/nvim-spider",
 	"https://github.com/folke/lazydev.nvim",

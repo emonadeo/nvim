@@ -83,6 +83,7 @@ require("conform").setup({
 		},
 		c = { "clang-format" },
 		cpp = { "clang-format" },
+		gdscript = { "gdscript-formatter" },
 		go = { "gofmt" },
 		html = {
 			"dprint",
