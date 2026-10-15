@@ -21,12 +21,12 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.operators",
 	"https://github.com/nvim-mini/mini.pairs",
 	"https://github.com/nvim-mini/mini.surround",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/rafamadriz/friendly-snippets",
 	"https://github.com/rcarriga/nvim-notify",
-	"https://github.com/romus204/tree-sitter-manager.nvim",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
@@ -42,7 +42,6 @@ require("mini.operators").setup({
 })
 require("mini.surround").setup({ silent = true })
 require("nvim-ts-autotag").setup()
-require("tree-sitter-manager").setup()
 require("which-key").setup({
 	preset = "classic",
 	icons = { mappings = false },
